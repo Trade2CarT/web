@@ -547,7 +547,7 @@ a {
     .banner {
         position: relative;
         flex: 0 0 calc(100% - 30px); /* Adjust width to account for margins */
-        margin: 0px 30px; /* Adjust margins as needed */
+        margin: 0px 20px; /* Adjust margins as needed */
         height: 100%;
     }
 
