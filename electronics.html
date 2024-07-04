@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Header</title>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="home.html">
+                <img src="logo.png" alt="Logo">
+            </a>
+        </div>
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search products..." oninput="searchProducts()">
+            <div class="search-btn"><i class="fas fa-search"></i></div>
+        </div>
+        <div class="contact-button">
+            <button class="contact">Contact</button>
+        </div>
+    </header>
+    
+    <section class="button-section">
+        <div class="round-buttons">
+            <div class="round-button">
+                <a href="products.html">
+                    <i class="fas fa-store"></i>
+                </a>
+            </div>
+            <div class="round-button">
+                <a href="services-link.html">
+                    <i class="fas fa-tools"></i>
+                </a>
+            </div>
+            <div class="round-button">
+                <a href="refurbished-link.html">
+                    <i class="fas fa-recycle"></i>
+                </a>
+            </div>
+        </div>
+        <div class="trade-waste-button">
+            <a href="trade-waste-link.html">
+                <button class="trade-waste">
+                    <i class="fas fa-recycle"></i> Trade Waste
+                </button>
+            </a>
+        </div>
+    </section>
+
+
+    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            
+    <div class="card">
+        <img src="products/electronic/WhatsApp Image 2024-07-02 at 18.10.36_1baac50e.jpg" alt="WhatsApp Image 2024-07-02 at 18.10.36_1baac50e" onclick="openModal('products/electronic/WhatsApp Image 2024-07-02 at 18.10.36_1baac50e.jpg')">
+        <h1>product1</h1>
+        <h1>product1</h1>
+        <p class="price">$29.99</p>
+        <p><button onclick="openWhatsApp3()">Buy Now</button></p>
+    </div>
+    
+    <div class="card">
+        <img src="products/electronic/WhatsApp Image 2024-07-02 at 18.10.36_7c6d974e.jpg" alt="WhatsApp Image 2024-07-02 at 18.10.36_7c6d974e" onclick="openModal('products/electronic/WhatsApp Image 2024-07-02 at 18.10.36_7c6d974e.jpg')">
+        <h1>product1</h1>
+        <h1>product2</h1>
+        <p class="price">$29.99</p>
+        <p><button onclick="openWhatsApp3()">Buy Now</button></p>
+    </div>
+    
+    <div class="card">
+        <img src="products/electronic/WhatsApp Image 2024-07-02 at 18.10.37_9c5a161b.jpg" alt="WhatsApp Image 2024-07-02 at 18.10.37_9c5a161b" onclick="openModal('products/electronic/WhatsApp Image 2024-07-02 at 18.10.37_9c5a161b.jpg')">
+        <h1>product1</h1>
+        <h1>product3</h1>
+        <p class="price">$29.99</p>
+        <p><button onclick="openWhatsApp3()">Buy Now</button></p>
+    </div>
+    
+        </div>
+    </section>
+
+    
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" class="modal-image">
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

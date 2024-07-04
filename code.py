@@ -16,18 +16,18 @@ def generate_html_from_images(folder_path):
         product_number = f"product{idx}"
         
         html_content += f'''
-        <div class="card">
-            <img src="products/bamboo/{image_name}{image_extension}" alt="{image_name}">
-            <h1>{product_number}</h1>
-            <p class="price">$29.99</p>
-            <p><button>Add to Cart</button></p>
-        </div>
-        '''
+    <div class="card">
+        <img src="products/bamboo/{image_name}{image_extension}" alt="{image_name}" onclick="openModal('products/bamboo/{image_name}{image_extension}')">
+        <h1>{product_number}</h1>
+        <p class="price">{image_name}</p>
+        <p><button onclick="openWhatsApp1()">Buy Now</button></p>
+    </div>
+    '''
     
     return html_content
 
 # Specify the path to your folder containing images
-folder_path = r"D:\k.g.n\resized"
+folder_path = r"D:\k.g.n\kgn"
 
 # Generate HTML
 html_output = generate_html_from_images(folder_path)

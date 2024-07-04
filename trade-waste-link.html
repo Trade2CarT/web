@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Trade Waste</title>
+    <style>
+        /* Additional styling for quantity container and unit */
+        .quantity-container {
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.quantity-container:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+.quantity-input {
+            width: 60px; /* Adjust width as needed */
+            margin-right: 10px; /* Adjust spacing as needed */
+            margin-left: 25px; /* Moves the input to the right */
+        }
+        .unit {
+            font-size: 14px; /* Adjust font size as needed */
+            color: #666; /* Adjust color as needed */
+        }
+        .cost {
+            margin-top: 10px; /* Adjust margin as needed */
+            font-size: 16px; /* Adjust font size as needed */
+            font-weight: bold;
+        }
+        #checkout-btn {
+            display: none; /* Initially hidden */
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with logo, search bar, and contact button -->
+    <header class="header">
+        <div class="logo">
+            <a href="home.html">
+                <img src="logo.png" alt="Logo">
+            </a>
+        </div>
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search products..." oninput="searchProducts()">
+            <div class="search-btn"><i class="fas fa-search"></i></div>
+        </div>
+        <div class="contact-button">
+            <button class="contact">Contact</button>
+        </div>
+    </header>
+
+    <!-- Section with navigation buttons -->
+    <section class="button-section">
+        <div class="round-buttons">
+            <div class="round-button">
+                <a href="products.html">
+                    <i class="fas fa-store"></i>
+                </a>
+            </div>
+            <div class="round-button">
+                <a href="services-link.html">
+                    <i class="fas fa-tools"></i>
+                </a>
+            </div>
+            <div class="round-button">
+                <a href="refurbished-link.html">
+                    <i class="fas fa-recycle"></i>
+                </a>
+            </div>
+        </div>
+        <div class="trade-waste-button">
+            <a href="trade-waste-link.html">
+                <button class="trade-waste">
+                    <i class="fas fa-recycle"></i> Trade Waste
+                </button>
+            </a>
+        </div>
+    </section>
+
+    <!-- Product cards section -->
+    <section class="cards-section">
+        <div id="product-list" class="cards-container">
+            <!-- Product cards will be dynamically generated here -->
+        </div>
+    </section>
+
+    <!-- WhatsApp checkout button -->
+    <button id="checkout-btn" onclick="redirectToWhatsApp()">Checkout on WhatsApp</button>
+
+    <!-- Modal (popup) -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modal-image" src="" alt="Product Image">
+        </div>
+    </div>
+
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" class="modal-image">
+        </div>
+    </div>
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" class="modal-image">
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+
+    <script>
+        // Sample product data (replace with your actual data)
+        let products = [
+    {
+        "id": 1,
+        "name": "mc battery",
+        "price": 59,
+        "imageUrl": "products/trade/battery/mc battery.jpg",
+        "unit": "KG(s)"
+    },
+    {
+        "id": 2,
+        "name": "ups battery",
+        "price": 1600,
+        "imageUrl": "products/trade/battery/ups battery.jpg",
+        "unit": "KG(s)"
+    },
+    {
+        "id": 3,
+        "name": "vehicle battery",
+        "price": 960,
+        "imageUrl": "products/trade/battery/vehicle battery.jpg",
+        "unit": "KG(s)"
+    },
+    {
+        "id": 4,
+        "name": "iron metal sheet",
+        "price": 23,
+        "imageUrl": "products/trade/iron/iron metal sheet.jpg",
+        "unit": "KG(s)"
+    },
+    {
+        "id": 5,
+        "name": "ms iron",
+        "price": 26,
+        "imageUrl": "products/trade/iron/ms iron .jpg",
+        "unit": "KG(s)"
+    },
+    {
+        "id": 6,
+        "name": "paint and iron tins",
+        "price": 15,
+        "imageUrl": "products/trade/iron/pain and iron tins.jpg",
+        "unit": "KG(s)"
+    },
+    {
+        "id": 7,
+        "name": "aluminum",
+        "price": 130,
+        "imageUrl": "products/trade/metals/aluminum.jpg",
+        "unit": "KG(s)"
+    },
+    {
+        "id": 8,
+        "name": "bc aluminum ",
+        "price": 110 ,
+        "imageUrl": "products/trade/metals/bc aluminum.jpg",
+        "unit": "KG(s)"
+    },
+    {
+        "id": 9,
+        "name": "bc mixed",
+        "price": 70,
+        "imageUrl": "products/trade/metals/bc mixed.jpg",
+        "unit": "KG(s)"
+    },
+    {
+        "id": 10,
+        "name": "brass",
+        "price": 400,
+        "imageUrl": "products/trade/metals/brass.jpg",
+        "unit": "KG(s)"
+    },
+    {
+        "id": 11,
+        "name": "copper",
+        "price": 620,
+        "imageUrl": "products/trade/metals/copper.jpg",
+        "unit": "KG(s)"
+    },
+    {
+        "id": 12,
+        "name": "stainless steel",
+        "price": 35,
+        "imageUrl": "products/trade/metals/stainless steel.jpg",
+        "unit": "KG(s)"
+    },
+    {
+        "id": 13,
+        "name": "cotton box",
+        "price": 9,
+        "imageUrl": "products/trade/paper/cotton box.jpg",
+        "unit": "KG(s)"
+    },
+    {
+        "id": 14,
+        "name": "note book",
+        "price": 15,
+        "imageUrl": "products/trade/paper/note book.jpg",
+        "unit": "KG(s)"
+    },
+    {
+        "id": 15,
+        "name": "school books",
+        "price": 10,
+        "imageUrl": "products/trade/paper/school books.jpg",
+        "unit": "KG(s)"
+    },
+    {
+        "id": 16,
+        "name": "Tamil-News-Paper",
+        "price": 17,
+        "imageUrl": "products/trade/paper/Tamil-News-Paper.jpg",
+        "unit": "KG(s)"
+    },
+    {
+        "id": 17,
+        "name": "black plastic",
+        "price": 23,
+        "imageUrl": "products/trade/plastic/black plastic .jpg",
+        "unit": "KG(s)"
+    },
+    {
+        "id": 18,
+        "name": "plastic",
+        "price": 16,
+        "imageUrl": "products/trade/plastic/plastic.jpg",
+        "unit": "KG(s)"
+    },
+    {
+        "id": 19,
+        "name": "pvc plastic",
+        "price": 23,
+        "imageUrl": "products/trade/plastic/pvc plastic.jpg",
+        "unit": "KG(s)"
+    },
+    {
+        "id": 20,
+        "name": "AC 1 ton",
+        "price": 1600,
+        "imageUrl": "products/trade/unused products/AC 1 ton.jpg",
+        "unit": "Unit(s)"
+    },
+    {
+        "id": 21,
+        "name": "AC 1.5 ton",
+        "price": 1950,
+        "imageUrl": "products/trade/unused products/AC 1.5 ton.jpg",
+        "unit": "Unit(s)"
+    },
+    {
+        "id": 22,
+        "name": "AC stabilizer",
+        "price": 90,
+        "imageUrl": "products/trade/unused products/AC stabilizer.jpg",
+        "unit": "Unit(s)"
+    },
+    {
+        "id": 23,
+        "name": "cell phone",
+        "price": 20,
+        "imageUrl": "products/trade/unused products/cell phone.jpg",
+        "unit": "Unit(s)"
+    },
+    {
+        "id": 24,
+        "name": "company table fan",
+        "price": 85,
+        "imageUrl": "products/trade/unused products/company table fan.jpg",
+        "unit": "Unit(s)"
+    },
+    {
+        "id": 25,
+        "name": "company grainder",
+        "price": 185,
+        "imageUrl": "products/trade/unused products/company grainder.jpg",
+        "unit": "Unit(s)"
+    },
+    {
+        "id": 26,
+        "name": "company mixxer",
+        "price": 85,
+        "imageUrl": "products/trade/unused products/company mixxer.jpg",
+        "unit": "Unit(s)"
+    },
+    {
+        "id": 27,
+        "name": "cooler fan",
+        "price": 200,
+        "imageUrl": "products/trade/unused products/cooler fan.jpg",
+        "unit": "Unit(s)"
+    },
+    {
+        "id": 28,
+        "name": "cooler tower",
+        "price": 60,
+        "imageUrl": "products/trade/unused products/cooler tower.jpg",
+        "unit": "Unit(s)"
+    },
+    {
+        "id": 29,
+        "name": "de frezer small",
+        "price": 1050,
+        "imageUrl": "products/trade/unused products/de frezer small.jpg",
+        "unit": "Unit(s)"
+    },
+    {
+        "id": 30,
+        "name": "double door",
+        "price": 900,
+        "imageUrl": "products/trade/unused products/double door.jpg",
+        "unit": "Unit(s)"
+    },
+    {
+        "id": 31,
+        "name": "electronic e waste",
+        "price": 10,
+        "imageUrl": "products/trade/unused products/electronic e waste.jpg",
+        "unit": "Unit(s)"
+    },
+    {
+        "id": 32,
+        "name": "govt fan",
+        "price": 55,
+        "imageUrl": "products/trade/unused products/govt fan.jpg",
+        "unit": "Unit(s)"
+    },
+    {
+        "id": 33,
+        "name": "govt grainder",
+        "price": 185,
+        "imageUrl": "products/trade/unused products/govt grainder.jpg",
+        "unit": "Unit(s)"
+    },
+    {
+        "id": 34,
+        "name": "govt mixxer",
+        "price": 60,
+        "imageUrl": "products/trade/unused products/govt mixxer.jpg",
+        "unit": "Unit(s)"
+    },
+    {
+        "id": 35,
+        "name": "hotel big grainder",
+        "price": 550,
+        "imageUrl": "products/trade/unused products/hotel big grainder .jpg",
+        "unit": "Unit(s)"
+    },
+    {
+        "id": 36,
+        "name": "new model geysar",
+        "price": 650,
+        "imageUrl": "products/trade/unused products/new model geysar.jpg",
+        "unit": "Unit(s)"
+    },
+    {
+        "id": 37,
+        "name": "old geyser",
+        "price": 450,
+        "imageUrl": "products/trade/unused products/old geyser.png",
+        "unit": "Unit(s)"
+    },
+    {
+        "id": 38,
+        "name": "single door big",
+        "price": 600,
+        "imageUrl": "products/trade/unused products/single door big.jpg",
+        "unit": "Unit(s)"
+    },
+    {
+        "id": 39,
+        "name": "single door small",
+        "price": 450,
+        "imageUrl": "products/trade/unused products/single door small.jpg",
+        "unit": "Unit(s)"
+    },
+    {
+        "id": 40,
+        "name": "TV stabilizer",
+        "price": 50,
+        "imageUrl": "products/trade/unused products/TV stabilizer.jpg",
+        "unit": "Unit(s)"
+    },
+    {
+        "id": 41,
+        "name": "ups inverter",
+        "price": 220,
+        "imageUrl": "products/trade/unused products/ups inverter.jpg",
+        "unit": "Unit(s)"
+    },
+    {
+        "id": 42,
+        "name": "washing machine frontload",
+        "price": 600,
+        "imageUrl": "products/trade/unused products/washing machine frontload.jpg",
+        "unit": "Unit(s)"
+    },
+    {
+        "id": 43,
+        "name": "washing machine semi plastic",
+        "price": 450,
+        "imageUrl": "products/trade/unused products/washing machine semi plastic.jpg",
+        "unit": "Unit(s)"
+    },
+    {
+        "id": 44,
+        "name": "water heater",
+        "price": 30,
+        "imageUrl": "products/trade/unused products/water heater.jpg",
+        "unit": "Unit(s)"
+    }
+];
+
+
+        // Function to dynamically generate product cards
+        function renderProducts() {
+            const productList = document.getElementById('product-list');
+
+            products.forEach(product => {
+                const card = document.createElement('div');
+                card.classList.add('card');
+                card.setAttribute('data-product-id', product.id);
+
+                // Product image
+                const img = document.createElement('img');
+                img.src = product.imageUrl; // Replace with actual image URL
+                img.alt = product.name;
+                img.onclick = () => openModal(product.imageUrl);
+                card.appendChild(img);
+
+                // Product name
+                const name = document.createElement('h1');
+                name.textContent = product.name;
+                card.appendChild(name);
+
+                // Product price
+                const price = document.createElement('p');
+                price.textContent = `₹${product.price.toFixed(2)}`;
+                price.classList.add('price');
+                card.appendChild(price);
+
+                // Quantity container
+                const quantityContainer = document.createElement('div');
+                quantityContainer.classList.add('quantity-container');
+
+                // Quantity input
+                const quantityInput = document.createElement('input');
+                quantityInput.type = 'number';
+                quantityInput.value = 0;
+                quantityInput.min = 0;
+                quantityInput.classList.add('quantity-input');
+                quantityInput.addEventListener('input', () => {
+                    updateCost(product.id, quantityInput.value);
+                    showCheckoutButton(); // Show checkout button dynamically
+                });
+                quantityContainer.appendChild(quantityInput);
+
+                // Unit display
+                const unit = document.createElement('span');
+                unit.textContent = product.unit;
+                unit.classList.add('unit');
+                quantityContainer.appendChild(unit);
+
+                card.appendChild(quantityContainer);
+
+                // Total cost display
+                const costDisplay = document.createElement('p');
+                costDisplay.textContent = `Total Cost: ₹0.00`; // Initial text
+                costDisplay.classList.add('cost');
+                card.appendChild(costDisplay);
+
+                productList.appendChild(card);
+            });
+        }
+
+        // Update cost function
+        function updateCost(productId, quantity) {
+            const product = products.find(p => p.id === productId);
+            if (!product) {
+                console.error(`Product with ID ${productId} not found.`);
+                return;
+            }
+
+            const dynamicCost = product.price * quantity;
+
+            // Update dynamic cost display
+            const costDisplay = document.querySelector(`.card[data-product-id="${productId}"] .cost`);
+            if (costDisplay) {
+                costDisplay.textContent = `Total Cost: ₹${dynamicCost.toFixed(2)}`;
+            } else {
+                console.error(`Cost display for product ID ${productId} not found.`);
+            }
+        }
+
+        // Show checkout button dynamically
+        function showCheckoutButton() {
+            const checkoutBtn = document.getElementById('checkout-btn');
+            const anyProductSelected = products.some(p => {
+                const quantityInput = document.querySelector(`.card[data-product-id="${p.id}"] .quantity-input`);
+                return parseInt(quantityInput.value) > 0;
+            });
+            checkoutBtn.style.display = anyProductSelected ? 'block' : 'none';
+        }
+
+        // Redirect to WhatsApp function
+        function redirectToWhatsApp() {
+            const selectedProducts = products.filter(p => {
+                const quantityInput = document.querySelector(`.card[data-product-id="${p.id}"] .quantity-input`);
+                return parseInt(quantityInput.value) > 0;
+            });
+
+            // Prepare WhatsApp message
+            let message = "Trade Waste\n";
+            selectedProducts.forEach(p => {
+                const quantityInput = document.querySelector(`.card[data-product-id="${p.id}"] .quantity-input`);
+                const quantity = parseInt(quantityInput.value);
+                const cost = p.price * quantity;
+                message += `${p.name}: ${quantity} x ₹${p.price.toFixed(2)} = ₹${cost.toFixed(2)}\n`;
+            });
+
+            // Total cost calculation
+            const totalPrice = selectedProducts.reduce((total, p) => {
+                const quantityInput = document.querySelector(`.card[data-product-id="${p.id}"] .quantity-input`);
+                const quantity = parseInt(quantityInput.value);
+                return total + (p.price * quantity);
+            }, 0);
+
+            message += `Total: ₹${totalPrice.toFixed(2)}`;
+
+            // Redirect to WhatsApp with message
+            const whatsappURL = `https://wa.me/9788335029?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
+        }
+
+        // Function to open modal with product image
+        function openModal(imageUrl) {
+            const modal = document.getElementById('myModal');
+            const modalImg = document.getElementById('modal-image');
+            modalImg.src = imageUrl;
+            modal.style.display = "block";
+        }
+
+        // Function to close modal
+        function closeModal() {
+            const modal = document.getElementById('myModal');
+            modal.style.display = "none";
+        }
+
+        // Initialize rendering of products
+        renderProducts();
+    </script>
+
+</body>
+</html>

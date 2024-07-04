@@ -1,10 +1,14 @@
 let currentIndex = 0;
-const banners = document.querySelectorAll('.banner-img');
+const banners = document.querySelectorAll('.banner');
 const dots = document.querySelectorAll('.dot');
+const bannerContainer = document.querySelector('.banner-container');
+
+// Calculate banner width considering margins
+const bannerWidth = banners[0].offsetWidth + 40; // Adjusted width considering margin
 
 function showBanner(index) {
-    const offset = -index * 100;
-    banners.forEach(banner => banner.style.transform = `translateX(${offset}%)`);
+    const offset = -index * bannerWidth;
+    bannerContainer.style.transform = `translateX(${offset}px)`;
     dots.forEach(dot => dot.classList.remove('active'));
     dots[index].classList.add('active');
 }
@@ -21,15 +25,19 @@ dots.forEach((dot, index) => {
     });
 });
 
-setInterval(nextBanner, 3000); // 5 minutes
+setInterval(nextBanner, 3000); // Auto slide every 3 seconds
 
 window.addEventListener('resize', () => {
-    showBanner(currentIndex);
+    // Recalculate banner width on resize
+    const newBannerWidth = banners[0].offsetWidth + 40;
+    if (newBannerWidth !== bannerWidth) {
+        bannerWidth = newBannerWidth;
+        showBanner(currentIndex);
+    }
 });
 
 // Initial display
 showBanner(currentIndex);
-
 
 // Search Functionality
 function searchProducts() {
@@ -45,10 +53,10 @@ function searchProducts() {
         }
     });
 }
+
 // Function to extract and display random products from HTML files
-// Function to fetch and display random products from HTML files
 function displayRandomProducts() {
-    const htmlFiles = ['kgncanecraft.html'];
+    const htmlFiles = ['kgncanecraft.html', 'electronics.html','fancy_store.html','vegetable_and_food.html'];
 
     // Iterate through each HTML file
     htmlFiles.forEach(file => {
@@ -85,7 +93,114 @@ function displayRandomProducts() {
     });
 }
 
-// Call displayRandomProducts when the page loads
-document.addEventListener('DOMContentLoaded', function() {
-    displayRandomProducts();
-});
+
+
+
+function openWhatsApp() {
+    // Replace with your WhatsApp number and custom message
+    const phoneNumber = '+919788335029';  // Replace with your WhatsApp number
+    const message = 'Hello, I am interested in buying your product KGN';  // Replace with your custom message
+    
+    // Construct the WhatsApp URL with encoded message
+    const whatsappURL = `https://wa.me/${phoneNumber}/?text=${encodeURIComponent(message)}`;
+    
+    // Open the WhatsApp link in a new tab
+    window.open(whatsappURL, '_blank');
+}
+function openWhatsApp1() {
+    // Replace with your WhatsApp number and custom message
+    const phoneNumber = '+919788335029';  // Replace with your WhatsApp number
+    const message = 'Hello, I am interested in buying your product Fancy';  // Replace with your custom message
+    
+    // Construct the WhatsApp URL with encoded message
+    const whatsappURL = `https://wa.me/${phoneNumber}/?text=${encodeURIComponent(message)}`;
+    
+    // Open the WhatsApp link in a new tab
+    window.open(whatsappURL, '_blank');
+}
+
+function openModal(src) {
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    modalImg.src = src;
+    modal.classList.add('show');
+    modal.style.display = 'block'; // Ensure modal is visible before the transition
+}
+
+function closeModal() {
+    const modal = document.getElementById('imageModal');
+    modal.classList.remove('show');
+    // Use a timeout to wait for the animation to complete before setting display to none
+    setTimeout(() => {
+        modal.style.display = 'none';
+    }, 300);
+}
+
+function openWhatsApp2() {
+    // Replace with your WhatsApp number and custom message
+    const phoneNumber = '+919788335029';  // Replace with your WhatsApp number
+    const message = 'Hello, I am interested in buying your product Electronics';  // Replace with your custom message
+    
+    // Construct the WhatsApp URL with encoded message
+    const whatsappURL = `https://wa.me/${phoneNumber}/?text=${encodeURIComponent(message)}`;
+    
+    // Open the WhatsApp link in a new tab
+    window.open(whatsappURL, '_blank');
+}
+
+function openWhatsApp3() {
+    // Replace with your WhatsApp number and custom message
+    const phoneNumber = '+919788335029';  // Replace with your WhatsApp number
+    const message = 'Hello, I am interested in  vegtable and fruits  colab';  // Replace with your custom message
+    
+    // Construct the WhatsApp URL with encoded message
+    const whatsappURL = `https://wa.me/${phoneNumber}/?text=${encodeURIComponent(message)}`;
+    
+    // Open the WhatsApp link in a new tab
+    window.open(whatsappURL, '_blank');
+}
+function openWhatsApp4() {
+    // Replace with your WhatsApp number and custom message
+    const phoneNumber = '+919788335029';  // Replace with your WhatsApp number
+    const message = 'Hello, I am interested in  your AC services';  // Replace with your custom message
+    
+    // Construct the WhatsApp URL with encoded message
+    const whatsappURL = `https://wa.me/${phoneNumber}/?text=${encodeURIComponent(message)}`;
+    
+    // Open the WhatsApp link in a new tab
+    window.open(whatsappURL, '_blank');
+}
+function openWhatsApp5() {
+    // Replace with your WhatsApp number and custom message
+    const phoneNumber = '+919788335029';  // Replace with your WhatsApp number
+    const message = 'Hello, I am interested in  your shifting services';  // Replace with your custom message
+    
+    // Construct the WhatsApp URL with encoded message
+    const whatsappURL = `https://wa.me/${phoneNumber}/?text=${encodeURIComponent(message)}`;
+    
+    // Open the WhatsApp link in a new tab
+    window.open(whatsappURL, '_blank');
+}
+
+function openWhatsApp6() {
+    // Replace with your WhatsApp number and custom message
+    const phoneNumber = '+919788335029';  // Replace with your WhatsApp number
+    const message = 'Hello, I am interested in  colab services';  // Replace with your custom message
+    
+    // Construct the WhatsApp URL with encoded message
+    const whatsappURL = `https://wa.me/${phoneNumber}/?text=${encodeURIComponent(message)}`;
+    
+    // Open the WhatsApp link in a new tab
+    window.open(whatsappURL, '_blank');
+}
+function openWhatsApp7() {
+    // Replace with your WhatsApp number and custom message
+    const phoneNumber = '+919788335029';  // Replace with your WhatsApp number
+    const message = 'Hello, I am interested in  colab Refurbished products';  // Replace with your custom message
+    
+    // Construct the WhatsApp URL with encoded message
+    const whatsappURL = `https://wa.me/${phoneNumber}/?text=${encodeURIComponent(message)}`;
+    
+    // Open the WhatsApp link in a new tab
+    window.open(whatsappURL, '_blank');
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Service</title>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="home.html">
+                <img src="logo.png" alt="Logo">
+            </a>
+        </div>
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search products..." oninput="searchProducts()">
+            <div class="search-btn"><i class="fas fa-search"></i></div>
+        </div>
+        <div class="contact-button">
+            <button class="contact">Contact</button>
+        </div>
+    </header>
+    <section class="button-section">
+        <div class="round-buttons">
+            <div class="round-button">
+                <a href="products.html">
+                    <i class="fas fa-store"></i>
+                </a>
+            </div>
+            <div class="round-button">
+                <a href="services-link.html">
+                    <i class="fas fa-tools"></i>
+                </a>
+            </div>
+            <div class="round-button">
+                <a href="refurbished-link.html">
+                    <i class="fas fa-recycle"></i>
+                </a>
+            </div>
+        </div>
+        <div class="trade-waste-button">
+            <a href="trade-waste-link.html">
+                <button class="trade-waste">
+                    <i class="fas fa-recycle"></i> Trade Waste
+                </button>
+            </a>
+        </div>
+    </section>
+
+
+    </section>
+    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            
+    <div class="card">
+        <img src="products/services/ac-repairing-services-for-industrial.png" alt="ac-repairing-services-for-industrial" onclick="openModal('products/services/ac-repairing-services-for-industrial.png')">
+        <h1>Ac Services</h1>
+        <p class="price">$29.99</p>
+        <p><button onclick="openWhatsApp4()">Buy Now</button></p>
+    </div>
+    
+    <div class="card">
+        <img src="products/services/images.png" alt="images" onclick="openModal('products/services/images.png')">
+        <h1>Shifting services</h1>
+        <p class="price">$29.99</p>
+        <p><button onclick="openWhatsApp5()">Buy Now</button></p>
+    </div>
+    
+        </div>
+    </section>
+
+    <div class="announcement">
+        <h1 class="animated-text">we are building a network</h1>
+        <p class="collab-text">If you want collaborate?</p>
+        <button  onclick="openWhatsApp6()" class="contact1-button">Contact</button>
+    </div>
+
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" class="modal-image">
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

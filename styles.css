@@ -25,6 +25,14 @@ body {
 .logo img {
     height: 40px;
 }
+.logo img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo a:hover img {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
 .search-container {
     background: #fff;
@@ -70,13 +78,101 @@ body {
 }
 
 .contact-button .contact {
-    background-color: red;
-    color: yellow;
+    background-color: #4CAF50; /* Green background */
+    color: #FFFFFF; /* White text */
     border: none;
     padding: 10px 20px;
-    border-radius: 10px 10px 0 0;
+    border-radius: 25px; /* Full-rounded button */
     cursor: pointer;
     font-size: 16px;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    animation: pulse 1.5s infinite; /* Infinite pulsing animation */
+}
+
+.contact-button .contact:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(72, 239, 128, 0.6); /* Green glow effect */
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.announcement {
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.animated-text {
+    font-size: 2em;
+    color: #333;
+    animation: textAnimation 2s ease-in-out infinite alternate;
+}
+
+.collab-text {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.contact1-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #FFFFFF; /* White text */
+    background-color: #4CAF50; /* Green background */
+    border: none;
+    border-radius: 25px; /* Full-rounded button */
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    animation: pulse 1.5s infinite; /* Infinite pulsing animation */
+}
+
+.contact1-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+@keyframes textAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(72, 239, 128, 0.6); /* Green glow effect */
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .button-section {
@@ -104,53 +200,120 @@ body {
     font-size: 24px;
 }
 
+/* Styles for Trade Waste Button */
 .trade-waste-button {
+    text-align: center;
     margin-left: 20px;
 }
 
+.trade-waste-button a {
+    text-decoration: none;
+}
+
 .trade-waste {
+    position: relative;
     background-color: #779D77;
     color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
     font-size: 16px;
+    overflow: hidden;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .trade-waste i {
     margin-right: 8px;
 }
 
+.trade-waste::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.trade-waste:hover {
+    background-color: #679067;
+    transform: scale(1.1);
+}
+
+.trade-waste:hover::before {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+.particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    animation: particleAnim 1s ease-out infinite;
+}
+
+@keyframes particleAnim {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(calc(100vw * 1.5), calc(100vh * 1.5)) scale(0);
+        opacity: 0;
+    }
+}
 .banner-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
     position: relative;
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+}
+
+.banner-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
 }
 
 .banner {
-    display: flex;
-    width: 100%;
-    height: 50vh;
-    transition: transform 0.5s ease-in-out;
+    position: relative;
+    flex: 0 0 calc(100% - 40px); /* Adjust width to account for margins */
+    margin: 0 20px; /* Adjust margins as needed */
+    height: 100%;
 }
 
 .banner img {
     width: 100%;
     height: auto;
-    flex: 0 0 100%;
 }
 
 .dots {
     position: absolute;
-    bottom: 10px;
+    top: 500px; /* Adjust top positioning as needed */
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    justify-content: center;
-    gap: 8px;
+    gap: 10px;
+    z-index: 1; /* Ensure dots are above the banner image */
 }
 
 .dot {
@@ -166,6 +329,7 @@ body {
 .dot.active {
     opacity: 1;
 }
+
 
 /* Product Cards Section */
 
@@ -231,6 +395,117 @@ body {
     transform: translateY(-3px);
 }
 
+.categories-section {
+    padding: 20px;
+    text-align: center;
+}
+
+.categories-section h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.categories-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.category {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    width: 150px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.category i {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #779D77;
+}
+
+.category p {
+    margin: 0;
+    font-size: 16px;
+    color: #666;
+}
+
+/* Modal (popup) styles */
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.modal-content {
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 500px;
+    background-color: white;
+    transform: scale(0.7);
+    transition: transform 0.3s ease-in-out;
+}
+
+.modal.show {
+    display: block;
+    opacity: 1;
+}
+
+.modal.show .modal-content {
+    transform: scale(1);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @media (max-width: 1024px) {
     .banner {
         height: 25vh;
@@ -262,5 +537,31 @@ body {
 @media (max-width: 600px) {
     .cards-container {
         grid-template-columns: repeat(2, 1fr);
+    }
+    .dots {
+        top: auto;
+        bottom: 420px; /* Adjust bottom position for mobile view */
+    }
+    .banner {
+        position: relative;
+        flex: 0 0 calc(100% - 30px); /* Adjust width to account for margins */
+        margin: 0px 20px; /* Adjust margins as needed */
+        height: 100%;
+    }
+
+    .modal-content {
+        width: 10%;
+        margin: 50% auto;
+        padding: 5%;
+        transform: scale(0.8);
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .close {
+        font-size: 24px;
+    }
+
+    .card {
+        max-width: 100%;
     }
 }

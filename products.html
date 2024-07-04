@@ -6,12 +6,75 @@
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Basic reset and global styles */
+        *
+        /* Categories section */
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .categories-section {
+            background-color: #f0f0f0;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        .categories-section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .categories-section a {
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .categories-section i {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        .categories-section span {
+            font-size: 1.2em;
+        }
+
+        /* Media Query for mobile */
+        @media (max-width: 768px) {
+            .categories-section {
+                width: calc(50% - 20px); /* Adjust to fit two items per row */
+                max-width: 150px; /* Reduce max-width for smaller screens */
+                height: 150px; /* Reduce height for smaller screens */
+                padding: 10px; /* Adjust padding for smaller screens */
+            }
+            .categories-section i {
+                font-size: 2em; /* Reduce icon size */
+            }
+            .categories-section span {
+                font-size: 1em; /* Reduce text size */
+            }
+        }
+    </style>
     <title>Trade2carT</title>
 </head>
 <body>
     <header class="header">
         <div class="logo">
-            <img src="logo.png" alt="Logo">
+            <a href="home.html">
+                <img src="logo.png" alt="Logo">
+            </a>
         </div>
         <div class="search-container">
             <input type="text" class="search-input" placeholder="Search products..." oninput="searchProducts()">
@@ -21,279 +84,364 @@
             <button class="contact">Contact</button>
         </div>
     </header>
-    <section class="button-section">
-        <div class="round-buttons">
-            <div class="round-button">
-                <a href="products.html">
-                    <i class="fas fa-store"></i>
-                </a>
-            </div>
-            <div class="round-button">
-                <a href="services-link.html">
-                    <i class="fas fa-wrench"></i>
-                </a>
-            </div>
-            <div class="round-button">
-                <a href="refurbished-link.html">
-                    <i class="fas fa-tools"></i>
-                </a>
-            </div>
+
+    <section class="categories">
+        <div class="categories-section">
+            <a href="kgncanecraft.html">
+                <i class="fas fa-chair"></i>
+                <span>Furniture</span>
+            </a>
         </div>
-        <div class="trade-waste-button">
-            <a href="trade-waste-link.html">
-                <button class="trade-waste">
-                    <i class="fas fa-recycle"></i> Trade Waste
-                </button>
+        <div class="categories-section">
+            <a href="refurbished-link.html">
+                <i class="fas fa-tools"></i>
+                <span>Refurbished</span>
+            </a>
+        </div>
+        <div class="categories-section">
+            <a href="fancy_store.html">
+                <i class="fas fa-store"></i>
+                <span>Fancy Store</span>
+            </a>
+        </div>
+        <div class="categories-section">
+            <a href="vegetable_and_food.html">
+                <i class="fas fa-carrot"></i>
+                <span>Vegetable and Food</span>
             </a>
         </div>
     </section>
 
-    <div class="banner-section">
-        <div class="banner-container">
-            <div class="banner">
-                <img src="banner1.png" alt="Banner 1" class="banner-img">
-            </div>
-            <div class="banner">
-                <img src="banner2.png" alt="Banner 2" class="banner-img">
-            </div>
-            <div class="banner">
-                <img src="banner3.png" alt="Banner 3" class="banner-img">
-            </div>
+
+
+        
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>    
+
+    <section class="cards-section">
+        <div class="cards-container">
+            <!-- Random products will be dynamically added here -->
+        </div>
+    </section>
+    <!-- Additional sections and content -->
+
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" class="modal-image">
         </div>
     </div>
-    <div class="dots">
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-    </div>
-     
-    </section>
     
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>    
-
-    <section class="cards-section">
-        <div class="cards-container">
-            <!-- Random products will be dynamically added here -->
-        </div>
-    </section>
-
-    
-
     <script src="script.js"></script>
 </body>
 </html>
