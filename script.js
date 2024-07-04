@@ -55,8 +55,18 @@ function searchProducts() {
 }
 
 // Function to extract and display random products from HTML files
+document.addEventListener('DOMContentLoaded', () => {
+    displayRandomProducts();
+});
+
 function displayRandomProducts() {
-    const htmlFiles = ['kgncanecraft.html', 'electronics.html','fancy_store.html','vegetable_and_food.html'];
+    const htmlFiles = ['kgncanecraft.html', 'electronics.html', 'fancy_store.html', 'vegetable_and_food.html'];
+    const cardsContainer = document.querySelector('.cards-container');
+
+    if (!cardsContainer) {
+        console.error('No .cards-container element found on the page.');
+        return;
+    }
 
     // Iterate through each HTML file
     htmlFiles.forEach(file => {
@@ -76,13 +86,15 @@ function displayRandomProducts() {
                 // Extract product cards
                 const cards = tempElement.querySelectorAll('.card');
 
+                console.log(`Found ${cards.length} cards in ${file}`);
+
                 if (cards.length > 0) {
                     // Choose a random product card
                     const randomIndex = Math.floor(Math.random() * cards.length);
                     const randomCard = cards[randomIndex].cloneNode(true);
 
                     // Append random card to main page
-                    document.querySelector('.cards-container').appendChild(randomCard);
+                    cardsContainer.appendChild(randomCard);
                 } else {
                     console.warn(`No product cards found in ${file}`);
                 }
