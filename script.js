@@ -59,6 +59,14 @@ document.addEventListener('DOMContentLoaded', () => {
     displayRandomProducts();
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    displayRandomProducts();
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    displayRandomProducts();
+});
+
 function displayRandomProducts() {
     const htmlFiles = ['kgncanecraft.html', 'electronics.html', 'fancy_store.html', 'vegetable_and_food.html'];
     const cardsContainer = document.querySelector('.cards-container');
@@ -105,6 +113,13 @@ function displayRandomProducts() {
     });
 }
 
+function searchProducts() {
+    // Implement the search functionality here
+}
+
+function closeModal() {
+    document.getElementById('imageModal').style.display = 'none';
+}
 
 
 
