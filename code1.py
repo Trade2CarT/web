@@ -22,8 +22,8 @@ def resize_images(input_folder, output_folder, size):
                 print(f'Resized and saved {image_file}')
 
 # Define the input and output folders and the size to resize to
-input_folder = r"D:\k.g.n\New folder (2)\unused products"
-output_folder = r"D:\k.g.n\New folder (2)\unused products\resized"
+input_folder = r"D:\k.g.n\electronic\New folder"
+output_folder = r"D:\k.g.n\electronic\New folder\resized"
 size = (300, 300)  # Example size, adjust as needed
 
 # Resize the images
