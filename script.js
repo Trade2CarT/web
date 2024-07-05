@@ -163,17 +163,13 @@ function closeModal() {
     }, 300);
 }
 
-function openWhatsApp2() {
-    // Replace with your WhatsApp number and custom message
-    const phoneNumber = '+919788335029';  // Replace with your WhatsApp number
-    const message = 'Hello, I am interested in buying your product Electronics';  // Replace with your custom message
-    
-    // Construct the WhatsApp URL with encoded message
-    const whatsappURL = `https://wa.me/${phoneNumber}/?text=${encodeURIComponent(message)}`;
-    
-    // Open the WhatsApp link in a new tab
-    window.open(whatsappURL, '_blank');
+function openWhatsApp2(productName) {
+    const phoneNumber = '9788335029';
+    const message = `I'm interested in buying: ${productName}`;
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.location.href = whatsappURL;
 }
+
 
 function openWhatsApp3() {
     // Replace with your WhatsApp number and custom message
