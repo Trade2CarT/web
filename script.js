@@ -39,7 +39,6 @@ window.addEventListener('resize', () => {
 // Initial display
 showBanner(currentIndex);
 
-// Search Functionality
 function searchProducts() {
     const input = document.querySelector('.search-input').value.toLowerCase();
     const cards = document.querySelectorAll('.card');
@@ -47,13 +46,12 @@ function searchProducts() {
     cards.forEach(card => {
         const productName = card.querySelector('h1').innerText.toLowerCase();
         if (productName.includes(input)) {
-            card.style.display = "";
+            card.style.display = "block"; // Ensure the card is displayed
         } else {
-            card.style.display = "none";
+            card.style.display = "none"; // Hide the card
         }
     });
 }
-
 // Function to extract and display random products from HTML files
 document.addEventListener('DOMContentLoaded', () => {
     displayRandomProducts();
@@ -113,13 +111,8 @@ function displayRandomProducts() {
     });
 }
 
-function searchProducts() {
-    // Implement the search functionality here
-}
 
-function closeModal() {
-    document.getElementById('imageModal').style.display = 'none';
-}
+
 
 
 
@@ -157,7 +150,6 @@ function openModal(src) {
 function closeModal() {
     const modal = document.getElementById('imageModal');
     modal.classList.remove('show');
-    // Use a timeout to wait for the animation to complete before setting display to none
     setTimeout(() => {
         modal.style.display = 'none';
     }, 300);
