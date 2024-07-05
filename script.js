@@ -150,10 +150,9 @@ function openModal(src) {
 function closeModal() {
     const modal = document.getElementById('imageModal');
     modal.classList.remove('show');
-    setTimeout(() => {
-        modal.style.display = 'none';
-    }, 300);
+    modal.style.display = 'none';
 }
+
 
 function openWhatsApp2(productName) {
     const phoneNumber = '+919788335029';
