@@ -164,7 +164,7 @@ function closeModal() {
 }
 
 function openWhatsApp2(productName) {
-    const phoneNumber = '9788335029';
+    const phoneNumber = '+919788335029';
     const message = `I'm interested in buying: ${productName}`;
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.location.href = whatsappURL;
