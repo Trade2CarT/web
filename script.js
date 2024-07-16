@@ -127,16 +127,7 @@
         // Open the WhatsApp link in a new tab
         window.open(whatsappURL, '_blank');
     }
-    function openWhatsApp1() {
-        // Replace with your WhatsApp number and custom message
-        const phoneNumber = '+919788335029';  // Replace with your WhatsApp number
-        const message = 'Hello, I am interested in buying your product Fancy';  // Replace with your custom message
-        
-        // Construct the WhatsApp URL with encoded message
-        const whatsappURL = `https://wa.me/${phoneNumber}/?text=${encodeURIComponent(message)}`;
-        
-        // Open the WhatsApp link in a new tab
-        window.open(whatsappURL, '_blank');
+    
     }
 
     function openModal(src) {
@@ -154,7 +145,13 @@
     }
 
 
-    function openWhatsApp2(productName) {
+    function openWhatsApp2(productName, price) {
+        const phoneNumber = '+919788335029';
+        const message = `I'm interested in buying fancystore product: ${productName} with price: ₹${price}`;
+        const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        window.location.href = whatsappURL;
+    }
+    function openWhatsApp1(productName) {
         const phoneNumber = '+919788335029';
         const message = `I'm interested in buying: ${productName}`;
         const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
