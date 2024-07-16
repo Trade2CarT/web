@@ -145,21 +145,23 @@
     }
 
 
-    function openWhatsApp2(productName, price) {
+    function openfancy(productName, price) {
         const phoneNumber = '+919788335029';
         const message = `I'm interested in buying fancystore product: ${productName} with price: ₹${price}`;
         const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         window.location.href = whatsappURL;
     }
-    function openWhatsApp1(productName) {
+    function openkgn(productName, price) {
         const phoneNumber = '+919788335029';
-        const message = `I'm interested in buying: ${productName}`;
+        const message = `I'm interested in buying KGN product: ${productName} with price: ₹${price}`;
         const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
         window.location.href = whatsappURL;
     }
+   
+   
 
 
-    function openWhatsApp3() {
+    function openvf() {
         // Replace with your WhatsApp number and custom message
         const phoneNumber = '+919788335029';  // Replace with your WhatsApp number
         const message = 'Hello, I am interested in  vegtable and fruits  colab';  // Replace with your custom message
@@ -170,7 +172,7 @@
         // Open the WhatsApp link in a new tab
         window.open(whatsappURL, '_blank');
     }
-    function openWhatsApp4() {
+    function openac() {
         // Replace with your WhatsApp number and custom message
         const phoneNumber = '+919788335029';  // Replace with your WhatsApp number
         const message = 'Hello, I am interested in  your AC services';  // Replace with your custom message
@@ -181,7 +183,7 @@
         // Open the WhatsApp link in a new tab
         window.open(whatsappURL, '_blank');
     }
-    function openWhatsApp5() {
+    function openshift() {
         // Replace with your WhatsApp number and custom message
         const phoneNumber = '+919788335029';  // Replace with your WhatsApp number
         const message = 'Hello, I am interested in  your shifting services';  // Replace with your custom message
@@ -193,7 +195,7 @@
         window.open(whatsappURL, '_blank');
     }
 
-    function openWhatsApp6() {
+    function opencolab() {
         // Replace with your WhatsApp number and custom message
         const phoneNumber = '+919788335029';  // Replace with your WhatsApp number
         const message = 'Hello, I am interested in  colab services';  // Replace with your custom message
@@ -204,7 +206,7 @@
         // Open the WhatsApp link in a new tab
         window.open(whatsappURL, '_blank');
     }
-    function openWhatsApp7() {
+    function openresale() {
         // Replace with your WhatsApp number and custom message
         const phoneNumber = '+919788335029';  // Replace with your WhatsApp number
         const message = 'Hello, I am interested in  colab Refurbished products';  // Replace with your custom message
