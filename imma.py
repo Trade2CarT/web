@@ -30,10 +30,10 @@ def generate_div_cards(base_dir):
                     
                     div_card = f'''
                     <div class="card">
-                        <img src="fancy/{folder_name}/{image_name}" alt="{folder_name}" onclick="openModal(fancy/{folder_name}/{image_name})">
+                        <img src="products/fancy/{folder_name}/{image_name}" alt="{folder_name}" onclick="openModal(products/fancy/{folder_name}/{image_name})">
                         <h1>{folder_name} {product_counter}</h1>
                         <p class="price">₹{price}</p>
-                        <p><button>Buy Now</button></p>
+                        <p><button onclick="openWhatsApp1('{folder_name} {product_counter}', '{price}')">Buy Now</button></p>
                     </div>
                     '''
                     div_cards += div_card
