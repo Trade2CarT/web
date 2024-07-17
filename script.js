@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function displayRandomProducts() {
     const htmlFiles = ['kgncanecraft.html', 'electronics.html', 'fancy_store.html', 'vegetable_and_food.html'];
     const cardsContainer = document.querySelector('.cards-container');
+    const cardsPerFile = 5;
 
     if (!cardsContainer) {
         console.error('No .cards-container element found on the page.');
@@ -73,12 +74,17 @@ function displayRandomProducts() {
             .then(html => {
                 const tempElement = document.createElement('div');
                 tempElement.innerHTML = html;
-                const cards = tempElement.querySelectorAll('.card');
+                const cards = Array.from(tempElement.querySelectorAll('.card'));
 
                 if (cards.length > 0) {
-                    const randomIndex = Math.floor(Math.random() * cards.length);
-                    const randomCard = cards[randomIndex].cloneNode(true);
-                    cardsContainer.appendChild(randomCard);
+                    // Shuffle the cards and select the first 'cardsPerFile'
+                    const shuffledCards = cards.sort(() => 0.5 - Math.random());
+                    const selectedCards = shuffledCards.slice(0, Math.min(cardsPerFile, shuffledCards.length));
+
+                    selectedCards.forEach(card => {
+                        const clonedCard = card.cloneNode(true);
+                        cardsContainer.appendChild(clonedCard);
+                    });
                 } else {
                     console.warn(`No product cards found in ${file}`);
                 }
@@ -111,7 +117,7 @@ function openWhatsApp(productName, productType, price) {
 }
 function openWhatsApp1(productName, ) {
     const phoneNumber = '+919788335029';
-    const message = `I'm interested to colab product: ${productName} `;
+    const message = `I'm interested in the product: ${productName} `;
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.location.href = whatsappURL;
 }
