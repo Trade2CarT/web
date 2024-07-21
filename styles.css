@@ -542,7 +542,7 @@ a {
     }
     .dots {
         top: auto;
-        bottom: 330px; /* Adjust bottom position for mobile view */
+        bottom: 600px; /* Adjust bottom position for mobile view */
     }
     .banner {
         position: relative;
