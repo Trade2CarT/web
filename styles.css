@@ -303,7 +303,7 @@ body {
 
 .banner img {
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 
 .dots {
@@ -542,7 +542,7 @@ a {
     }
     .dots {
         top: auto;
-        bottom: 600px; /* Adjust bottom position for mobile view */
+        bottom: 500px; /* Adjust bottom position for mobile view */
     }
     .banner {
         position: relative;
