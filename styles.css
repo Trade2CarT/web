@@ -548,7 +548,7 @@ a {
         position: relative;
         flex: 0 0 calc(100% -10px); /* Adjust width to account for margins */
         margin: 0px 20px; /* Adjust margins as needed */
-        height: 250%;
+        height: 100%;
     }
 
     .modal-content {
