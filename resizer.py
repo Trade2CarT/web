@@ -31,8 +31,8 @@ def resize_images_in_subfolders(input_folder, output_folder, size):
                         print(f'Folder: {subfolder} | Image: {image_file}')
 
 # Define the input and output folders and the size to resize to
-input_folder = r"D:\New folder"
-output_folder = r"D:\New folder\resized"
+input_folder = r"D:\veg"
+output_folder = r"D:\veg\resized"
 size = (300, 300)  # Example size, adjust as needed
 
 # Resize the images

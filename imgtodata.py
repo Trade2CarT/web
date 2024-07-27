@@ -42,7 +42,7 @@ def generate_div_cards(base_dir):
     return div_cards
 
 # Set the base directory where your product folders are located
-base_dir = r'D:\New folder'
+base_dir = r'D:\veg'
 
 # Generate the div cards HTML
 div_cards_html = generate_div_cards(base_dir)
