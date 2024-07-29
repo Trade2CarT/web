@@ -45,26 +45,28 @@
     <style>
         /* Additional styling for quantity container and unit */
         .quantity-container {
-            display: flex;
-            align-items: center;
-            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-        }
+    display: flex;
+    align-items: center;
+}
 
-        .quantity-container:hover {
-            transform: scale(1.1);
-            opacity: 0.8;
-        }
+.quantity-label {
+    font-size: 14px; /* Adjust font size as needed */
+    color: #666; /* Adjust color as needed */
+    margin-right: 5px; 
+    margin-left: 5px; 
+    font-weight: bolder;/* Space between the label and the input */
+}
 
-        .quantity-input {
-            width: 60px; /* Adjust width as needed */
-            margin-right: 10px; /* Adjust spacing as needed */
-            margin-left: 25px; /* Moves the input to the right */
-        }
+.quantity-input {
+    width: 60px; /* Adjust width as needed */
+    margin-right: 10px; /* Space between the input and the unit */
+}
 
-        .unit {
-            font-size: 14px; /* Adjust font size as needed */
-            color: #666; /* Adjust color as needed */
-        }
+.unit {
+    font-size: 14px; /* Adjust font size as needed */
+    color: #666; /* Adjust color as needed */
+}
+
 
         .cost {
             margin-top: 10px; /* Adjust margin as needed */
@@ -616,26 +618,33 @@
                 card.appendChild(price);
 
                 // Quantity container
-                const quantityContainer = document.createElement('div');
-                quantityContainer.classList.add('quantity-container');
+const quantityContainer = document.createElement('div');
+quantityContainer.classList.add('quantity-container');
 
-                // Quantity input
-                const quantityInput = document.createElement('input');
-                quantityInput.type = 'number';
-                quantityInput.value = 0;
-                quantityInput.min = 0;
-                quantityInput.classList.add('quantity-input');
-                quantityInput.addEventListener('input', () => {
-                    updateCost(product.id, quantityInput.value);
-                    showCheckoutButton(); // Show checkout button dynamically
-                });
-                quantityContainer.appendChild(quantityInput);
+// Quantity label
+const quantityLabel = document.createElement('span');
+quantityLabel.textContent = "Quantity:";
+quantityLabel.classList.add('quantity-label');
+quantityContainer.appendChild(quantityLabel);
 
-                // Unit display
-                const unit = document.createElement('span');
-                unit.textContent = product.unit;
-                unit.classList.add('unit');
-                quantityContainer.appendChild(unit);
+// Quantity input
+const quantityInput = document.createElement('input');
+quantityInput.type = 'number';
+quantityInput.value = 0;
+quantityInput.min = 0;
+quantityInput.classList.add('quantity-input');
+quantityInput.addEventListener('input', () => {
+    updateCost(product.id, quantityInput.value);
+    showCheckoutButton(); // Show checkout button dynamically
+});
+quantityContainer.appendChild(quantityInput);
+
+// Unit display
+const unit = document.createElement('span');
+unit.textContent = product.unit;
+unit.classList.add('unit');
+quantityContainer.appendChild(unit);
+
 
                 card.appendChild(quantityContainer);
 
