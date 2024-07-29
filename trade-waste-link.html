@@ -651,24 +651,22 @@
 
         // Update cost function
         function updateCost(productId, quantity) {
-    const product = products.find(p => p.id === productId);
-    if (!product) {
-        console.error(`Product with ID ${productId} not found.`);
-        return;
-    }
+            const product = products.find(p => p.id === productId);
+            if (!product) {
+                console.error(`Product with ID ${productId} not found.`);
+                return;
+            }
 
-    const dynamicCost = product.price * quantity;
+            const dynamicCost = product.price * quantity;
 
-    // Update dynamic cost display
-    const costDisplay = document.querySelector(`.card[data-product-id="${productId}"] .cost`);
-    if (costDisplay) {
-        costDisplay.textContent = `Total Cost: ₹${dynamicCost.toFixed(2)}`;
-        document.getElementById('total-cost').textContent = `Total Cost: ₹${dynamicCost.toFixed(2)}`;
-    } else {
-        console.error(`Cost display for product ID ${productId} not found.`);
-    }
-}
-
+            // Update dynamic cost display
+            const costDisplay = document.querySelector(`.card[data-product-id="${productId}"] .cost`);
+            if (costDisplay) {
+                costDisplay.textContent = `Total Cost: ₹${dynamicCost.toFixed(2)}`;
+            } else {
+                console.error(`Cost display for product ID ${productId} not found.`);
+            }
+        }
 
         // Show checkout button dynamically
         function showCheckoutButton() {
