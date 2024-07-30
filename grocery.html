@@ -49,7 +49,8 @@
     <header class="header">
         <div class="logo">
             <a href="home.html">
-                <img src="logo.png" alt="Trade2Cart Logo">
+                <img src="logo1.png" alt="trade2cart">
+                <img src="logo.png" alt="trade2cart">
             </a>
         </div>
         <div class="search-container">
@@ -188,48 +189,7 @@
         <p>&copy; 2024 Trade2Cart. All rights reserved.</p>
     </footer>
 
-    <!-- Scripts -->
-     <!-- Default consent configuration before loading gtag.js -->
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    
-    // Set default consent settings
-    gtag('consent', 'default', {
-      'ad_storage': 'denied',
-      'ad_user_data': 'denied',
-      'ad_personalization': 'denied',
-      'analytics_storage': 'denied'
-    });
-  </script>
-  
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1EB5H9KNM9"></script>
-  <script>
-    // Initialize gtag.js
-    gtag('js', new Date());
-    gtag('config', 'G-1EB5H9KNM9');
-    
-    // Create update function for ad storage consent
-    function consentGrantedAdStorage() {
-      gtag('consent', 'update', {
-        'ad_storage': 'granted'
-      });
-    }
-  
-    // Handle consent and hide the banner
-    function handleConsent() {
-      consentGrantedAdStorage();
-      document.getElementById('consent-banner').style.display = 'none';
-    }
-  </script>
-  
-  <!-- Consent Banner -->
-  <div id="consent-banner" style="position: fixed; bottom: 0; width: 100%; background: #333; color: #fff; text-align: center; padding: 10px;">
-    <p>We use cookies to improve your experience. By clicking "Yes", you consent to our use of cookies for ad storage.</p>
-    <button onclick="handleConsent()">Yes</button>
-  </div>
-  
+   
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
 </body>
