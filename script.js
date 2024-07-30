@@ -42,7 +42,7 @@ function searchProducts() {
     const cards = document.querySelectorAll('.card');
 
     cards.forEach(card => {
-        const productName = card.querySelector('h1').innerText.toLowerCase();
+        const productName = card.querySelector('h1') ? card.querySelector('h1').innerText.toLowerCase() : '';
         card.style.display = productName.includes(input) ? "block" : "none";
     });
 }
@@ -50,11 +50,11 @@ function searchProducts() {
 // Function to extract and display random products from HTML files
 document.addEventListener('DOMContentLoaded', () => {
     displayRandomProducts();
-    document.getElementById('closeModal').addEventListener('click', closeModal);
+    document.getElementById('closeModal')?.addEventListener('click', closeModal);
 });
 
 function displayRandomProducts() {
-    const htmlFiles = ['kgncanecraft.html', 'electronics.html', 'fancy_store.html', 'vegetable_and_food.html','grocery.html'];
+    const htmlFiles = ['kgncanecraft.html', 'electronics.html', 'fancy_store.html', 'vegetable_and_food.html', 'grocery.html'];
     const cardsContainer = document.querySelector('.cards-container');
     const cardsPerFile = 5;
 
@@ -98,15 +98,23 @@ function displayRandomProducts() {
 function openModal(src) {
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
-    modalImg.src = src;
-    modal.classList.add('show');
-    modal.style.display = 'block';
+    if (modal && modalImg) {
+        modalImg.src = src;
+        modal.classList.add('show');
+        modal.style.display = 'block';
+    } else {
+        console.error('Modal elements not found.');
+    }
 }
 
 function closeModal() {
     const modal = document.getElementById('imageModal');
-    modal.classList.remove('show');
-    modal.style.display = 'none';
+    if (modal) {
+        modal.classList.remove('show');
+        modal.style.display = 'none';
+    } else {
+        console.error('Modal element not found.');
+    }
 }
 
 function openWhatsApp(productName, productType, price) {
@@ -115,9 +123,19 @@ function openWhatsApp(productName, productType, price) {
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.location.href = whatsappURL;
 }
-function openWhatsApp1(productName, ) {
+
+function openWhatsApp1(productName) {
     const phoneNumber = '+919788335029';
-    const message = `I'm interested in the product: ${productName} `;
+    const message = `I'm interested in the product: ${productName}`;
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.location.href = whatsappURL;
 }
+
+// Google Analytics
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1EB5H9KNM9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1EB5H9KNM9');
+</script>
