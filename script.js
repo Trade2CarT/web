@@ -141,34 +141,3 @@ function gtag(){dataLayer.push(arguments);}
 
 // Set default consent to 'denied' as a placeholder
 // Determine actual values based on your own requirements
-gtag('consent', 'default', {
-  'ad_storage': 'denied',
-  'ad_user_data': 'denied',
-  'ad_personalization': 'denied',
-  'analytics_storage': 'denied'
-});
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1EB5H9KNM9">
-
-
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-
-  gtag('js', new Date());
-  gtag('config', 'TAG_ID');
-
-
-<!-- Create one update function for each consent parameter -->
-
-  function consentGrantedAdStorage() {
-    gtag('consent', 'update', {
-      'ad_storage': 'granted'
-    });
-  }
-
-<!-- Invoke your consent functions when a user interacts with your banner -->
-
-  ...
-  <button onclick="consentGrantedAdStorage">Yes</button>
-  ...
