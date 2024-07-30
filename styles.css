@@ -570,12 +570,14 @@ a {
 }
 /* Footer Styling */
 .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     background: linear-gradient(45deg, #333, #222);
     color: #ffffff;
     padding: 40px 0;
     text-align: center;
-    width: 100%;
-    position: relative;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -642,4 +644,15 @@ a:hover {
 }
 .trade-waste {
     font-weight: bold;
+}
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(45deg, #333, #222);
+    color: #ffffff;
+    padding: 40px 0;
+    text-align: center;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
 }
