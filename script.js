@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function() {
     showOverlay();
 
     // Example: Hide the overlay after 3 seconds
-    setTimeout(hideOverlay, 3000);
+    setTimeout(hideOverlay, 2000);
 });
 
 
@@ -145,37 +145,3 @@ document.addEventListener("DOMContentLoaded", function() {
 
 //demo
 
-async function fetchProductData(url) {
-    const response = await fetch(url);
-    const text = await response.text();
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(text, 'text/html');
-    return Array.from(doc.querySelectorAll('.product-card')); // Adjust the selector based on your HTML structure
-  }
-  
-  async function displayRandomProducts(fileNames, numProductsToShow) {
-    const productPromises = fileNames.map(fileName => fetchProductData(fileName));
-    const productArrays = await Promise.all(productPromises);
-    const allProducts = productArrays.flat();
-    
-    const shuffledProducts = allProducts.sort(() => 0.5 - Math.random());
-    const selectedProducts = shuffledProducts.slice(0, numProductsToShow);
-    
-    const cardsContainer = document.querySelector('.cards-container');
-    selectedProducts.forEach(product => {
-      const clonedProduct = product.cloneNode(true);
-      cardsContainer.appendChild(clonedProduct);
-    });
-  }
-  
-  const fileNames = [
-    'kgncanecraft.html',
-    'electronics.html',
-    'fancy_store.html',
-    'vegetable_and_food.html',
-    'grocery.html'
-  ];
-  
-  // Display 5 random products as an example
-  displayRandomProducts(fileNames, 5);
-  
