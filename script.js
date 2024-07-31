@@ -145,3 +145,49 @@ document.addEventListener("DOMContentLoaded", function() {
 
 //demo
 
+let selectedTradeItems = [];
+let selectedProducts = [];
+let tradeTotal = 0;
+let productTotal = 0;
+let tradeType = '';
+
+function goToPaymentOptions() {
+    document.getElementById('page-1').classList.remove('active');
+    document.getElementById('page-2').classList.add('active');
+}
+
+function selectPaymentOption(option) {
+    tradeType = option;
+    if (option === 'cash') {
+        sendToWhatsApp();
+    } else {
+        document.getElementById('page-2').classList.remove('active');
+        document.getElementById('page-3').classList.add('active');
+    }
+}
+
+function finalizeProductSelection() {
+    sendToWhatsApp();
+}
+
+function sendToWhatsApp() {
+    let message = `Trade Type: ${tradeType}\n\n`;
+    if (tradeType === 'cash') {
+        message += `Total Cash: ${tradeTotal} INR`;
+    } else {
+        message += `Selected Products:\n`;
+        selectedProducts.forEach(product => {
+            message += ` - ${product.name}: ${product.quantity} x ${product.price} INR\n`;
+        });
+        message += `Total Product Value: ${productTotal} INR`;
+    }
+
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/9788335029?text=${encodedMessage}`);
+}
+
+// Existing functions for quantity adjustments and other functionalities...
+
+// Add event listeners for buttons and other interactive elements...
+
+// Load initial product data and dynamically generate product cards...

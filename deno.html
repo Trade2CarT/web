@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Trade2Cart - Buy and Sell Scrap Items Online</title>
+    <meta name="description" content="Trade2Cart: Turning rubbish into riches. Embrace green living and transform your scrap into treasures.">
+    <meta name="keywords" content="trade2Cart,scraprecyclingVellore,sellscrapitemsonline,tradescrapforproducts,environmentallyfriendlyrecycling,Trade2Cartscrapcollection,recycleforproductsservice,sustainablescrapdisposal,buyrefurbisheditemsonline,onlinescrapcollectionservice,cashforscrap,scrapitemrecyclingTamilNadu,upcycledfurniturestore,Trade2Cartonlinestore,eco-friendlyproductswaps,refurbishedelectronicsshopping,scrapcollectionformoney,zerowasteshopping,recycleandshoponline,Trade2Cartswastemanagement,onlinerecyclingserviceIndia,sellolditemsforcash,refurbishedhomeappliances,eco-sustainableshopping,tradescrapforgoods,vegetableandfoodsales,web-basedscrapcollection,WhatsAppcheckoutshopping,dynamicproductcardsonlinestore,Trade2Cartservices">
+    <meta name="author" content="Trade2Cart">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Trade2Cart - Buy and Sell Scrap Items Online">
+    <meta property="og:description" content="Your one-stop solution for trading waste products online. Get money or products in return for your scrap items.">
+    <meta property="og:image" content="https://trade2cart.in/logo1.png">
+    <meta property="og:url" content="https://www.trade2cart.in">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Trade2Cart - Buy and Sell Scrap Items Online">
+    <meta name="twitter:description" content="Your one-stop solution for trading waste products online. Get money or products in return for your scrap items.">
+    <meta name="twitter:image" content="https://trade2cart.in/logo1.png">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://trade2cart.in/trade-waste-link">
+    <style>
+        .quantity-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .quantity-label {
+            font-size: 11px;
+            color: #666;
+            margin-right: 5px;
+            margin-left: 5px;
+            font-weight: bolder;
+        }
+
+        .quantity-input {
+            width: 60px;
+            margin-right: 10px;
+        }
+
+        .unit {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .cost {
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        #checkout-btn {
+            display: none;
+            position: fixed;
+            top: 90px;
+            right: 13px;
+            padding: 10px 20px;
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            z-index: 1000;
+            font-weight: 900;
+            font-size: 16px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .card h1 {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        .card .price {
+            color: #ff5722;
+            font-size: 1.2em;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .payment-options {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        .payment-option {
+            margin: 0 10px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- First Page: Trade Items Selection -->
+    <div id="page-1" class="page active">
+        <header class="header">
+            <div class="logo">
+                <a href="home.html">
+                    <img src="logo1.png" alt="trade2cart">
+                    <img src="logo.png" alt="trade2cart">
+                </a>
+            </div>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search products..." oninput="searchProducts()">
+                <div class="search-btn"><i class="fas fa-search"></i></div>
+            </div>
+            <div class="contact-button">
+                <button class="contact">Contact</button>
+            </div>
+        </header>
+        <section class="button-section">
+            <div class="round-buttons">
+                <div class="round-button">
+                    <a href="products.html">
+                        <i class="fas fa-store"></i>
+                    </a>
+                </div>
+                <div class="round-button">
+                    <a href="services-link.html">
+                        <i class="fas fa-tools"></i>
+                    </a>
+                </div>
+                <div class="round-button">
+                    <a href="refurbished-link.html">
+                        <i class="fas fa-recycle"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="trade-waste-button">
+                <a href="trade-waste-link.html">
+                    <button class="trade-waste">
+                        <i class="fas fa-recycle"></i> Trade Waste
+                    </button>
+                </a>
+            </div>
+        </section>
+        <section class="cards-section">
+            <div id="product-list" class="cards-container">
+                <!-- Product cards will be dynamically generated here -->
+            </div>
+        </section>
+        <button id="checkout-btn" onclick="goToPaymentOptions()">Next</button>
+    </div>
+
+    <!-- Second Page: Payment Options -->
+    <div id="page-2" class="page">
+        <div class="payment-options">
+            <div class="payment-option" onclick="selectPaymentOption('cash')">
+                <h3>Cash</h3>
+            </div>
+            <div class="payment-option" onclick="selectPaymentOption('products')">
+                <h3>Products</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Third Page: Product Selection -->
+    <div id="page-3" class="page">
+        <section class="cards-section">
+            <div id="product-selection-list" class="cards-container">
+                <!-- Product selection cards will be dynamically generated here -->
+            </div>
+        </section>
+        <button id="finalize-selection-btn" onclick="finalizeProductSelection()">Finalize Selection</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
