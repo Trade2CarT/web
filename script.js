@@ -32,24 +32,51 @@ window.addEventListener('resize', () => {
         bannerWidth = newBannerWidth;
         showBanner(currentIndex);
     }
-});
+});document.addEventListener('DOMContentLoaded', () => {
+    let currentIndex = 0;
+    const banners = document.querySelectorAll('.banner');
+    const dots = document.querySelectorAll('.dot');
+    const bannerContainer = document.querySelector('.banner-container');
 
-// Initial display
-showBanner(currentIndex);
+    if (banners.length === 0 || dots.length === 0 || !bannerContainer) {
+        console.error('Required elements not found on the page.');
+        return;
+    }
 
-function searchProducts() {
-    const input = document.querySelector('.search-input').value.toLowerCase();
-    const cards = document.querySelectorAll('.card');
+    let bannerWidth = banners[0].offsetWidth + 40; // Adjusted width
 
-    cards.forEach(card => {
-        const productName = card.querySelector('h1').innerText.toLowerCase();
-        card.style.display = productName.includes(input) ? "block" : "none";
+    function showBanner(index) {
+        const offset = -index * bannerWidth;
+        bannerContainer.style.transform = `translateX(${offset}px)`;
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[index].classList.add('active');
+    }
+
+    function nextBanner() {
+        currentIndex = (currentIndex + 1) % banners.length;
+        showBanner(currentIndex);
+    }
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentIndex = index;
+            showBanner(index);
+        });
     });
-}
-document.addEventListener('DOMContentLoaded', () => {
-    displayRandomProducts();
-    document.getElementById('closeModal').addEventListener('click', closeModal);
-});
+
+    setInterval(nextBanner, 3000); // Auto slide every 3 seconds
+
+    window.addEventListener('resize', () => {
+        const newBannerWidth = banners[0].offsetWidth + 40;
+        if (newBannerWidth !== bannerWidth) {
+            bannerWidth = newBannerWidth;
+            showBanner(currentIndex);
+        }
+    });
+
+    // Initial display
+    showBanner(currentIndex);
+
 //random
 
 function displayRandomProducts() {
