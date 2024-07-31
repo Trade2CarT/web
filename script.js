@@ -45,7 +45,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Additional code
     displayRandomProducts();
-    document.getElementById('closeModal').addEventListener('click', closeModal);
+    const closeModalButton = document.getElementById('closeModal');
+    if (closeModalButton) {
+        closeModalButton.addEventListener('click', closeModal);
+    }
 
     function searchProducts() {
         const input = document.querySelector('.search-input').value.toLowerCase();
@@ -105,15 +108,19 @@ document.addEventListener('DOMContentLoaded', () => {
     function openModal(src) {
         const modal = document.getElementById('imageModal');
         const modalImg = document.getElementById('modalImage');
-        modalImg.src = src;
-        modal.classList.add('show');
-        modal.style.display = 'block';
+        if (modal && modalImg) {
+            modalImg.src = src;
+            modal.classList.add('show');
+            modal.style.display = 'block';
+        }
     }
 
     function closeModal() {
         const modal = document.getElementById('imageModal');
-        modal.classList.remove('show');
-        modal.style.display = 'none';
+        if (modal) {
+            modal.classList.remove('show');
+            modal.style.display = 'none';
+        }
     }
 
     function openWhatsApp(productName, productType, price) {
