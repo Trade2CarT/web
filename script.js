@@ -1,55 +1,45 @@
-let currentIndex = 0;
-const banners = document.querySelectorAll('.banner');
-const dots = document.querySelectorAll('.dot');
-const bannerContainer = document.querySelector('.banner-container');
+document.addEventListener('DOMContentLoaded', function () {
+    let currentIndex = 0;
+    const banners = document.querySelectorAll('.banner');
+    const dots = document.querySelectorAll('.dot');
+    const bannerContainer = document.querySelector('.banner-container');
 
-let bannerWidth = banners[0].offsetWidth + 40; // Adjusted width
+    let bannerWidth = banners[0].offsetWidth + 40; // Adjusted width
 
-function showBanner(index) {
-    const offset = -index * bannerWidth;
-    bannerContainer.style.transform = `translateX(${offset}px)`;
-    dots.forEach(dot => dot.classList.remove('active'));
-    dots[index].classList.add('active');
-}
+    function showBanner(index) {
+        const offset = -index * bannerWidth;
+        bannerContainer.style.transform = `translateX(${offset}px)`;
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[index].classList.add('active');
+    }
 
-function nextBanner() {
-    currentIndex = (currentIndex + 1) % banners.length;
-    showBanner(currentIndex);
-}
-
-dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-        currentIndex = index;
-        showBanner(index);
-    });
-});
-
-setInterval(nextBanner, 3000); // Auto slide every 3 seconds
-
-window.addEventListener('resize', () => {
-    const newBannerWidth = banners[0].offsetWidth + 40;
-    if (newBannerWidth !== bannerWidth) {
-        bannerWidth = newBannerWidth;
+    function nextBanner() {
+        currentIndex = (currentIndex + 1) % banners.length;
         showBanner(currentIndex);
     }
-});
 
-// Initial display
-showBanner(currentIndex);
-
-function searchProducts() {
-    const input = document.querySelector('.search-input').value.toLowerCase();
-    const cards = document.querySelectorAll('.card');
-
-    cards.forEach(card => {
-        const productName = card.querySelector('h1').innerText.toLowerCase();
-        card.style.display = productName.includes(input) ? "block" : "none";
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentIndex = index;
+            showBanner(index);
+        });
     });
-}
-document.addEventListener('DOMContentLoaded', () => {
-    displayRandomProducts();
-    document.getElementById('closeModal').addEventListener('click', closeModal);
+
+    setInterval(nextBanner, 3000); // Auto slide every 3 seconds
+
+    window.addEventListener('resize', () => {
+        const newBannerWidth = banners[0].offsetWidth + 40;
+        if (newBannerWidth !== bannerWidth) {
+            bannerWidth = newBannerWidth;
+            showBanner(currentIndex);
+        }
+    });
+
+    // Initial display
+    showBanner(currentIndex);
 });
+
+//random
 
 function displayRandomProducts() {
     const htmlFiles = ['kgncanecraft.html', 'electronics.html', 'fancy_store.html', 'vegetable_and_food.html', 'grocery.html'];
