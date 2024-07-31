@@ -46,20 +46,19 @@ function searchProducts() {
         card.style.display = productName.includes(input) ? "block" : "none";
     });
 }
-
-// Function to extract and display random products from HTML files
 document.addEventListener('DOMContentLoaded', () => {
     displayRandomProducts();
     document.getElementById('closeModal').addEventListener('click', closeModal);
 });
+//random
 
 function displayRandomProducts() {
-    const htmlFiles = ['kgncanecraft.html', 'electronics.html', 'fancy_store.html', 'vegetable_and_food.html','grocery.html'];
-    const cardsContainer = document.querySelector('.cards-container');
+    const htmlFiles = ['kgncanecraft.html', 'electronics.html', 'fancy_store.html', 'vegetable_and_food.html', 'grocery.html'];
+    const cardsContainers = document.querySelectorAll('.cards-container'); // Select all cards containers
     const cardsPerFile = 5;
 
-    if (!cardsContainer) {
-        console.error('No .cards-container element found on the page.');
+    if (cardsContainers.length === 0) {
+        console.error('No .cards-container elements found on the page.');
         return;
     }
 
@@ -81,9 +80,11 @@ function displayRandomProducts() {
                     const shuffledCards = cards.sort(() => 0.5 - Math.random());
                     const selectedCards = shuffledCards.slice(0, Math.min(cardsPerFile, shuffledCards.length));
 
-                    selectedCards.forEach(card => {
-                        const clonedCard = card.cloneNode(true);
-                        cardsContainer.appendChild(clonedCard);
+                    selectedCards.forEach((card, index) => {
+                        if (cardsContainers[index]) {
+                            const clonedCard = card.cloneNode(true);
+                            cardsContainers[index].appendChild(clonedCard);
+                        }
                     });
                 } else {
                     console.warn(`No product cards found in ${file}`);
