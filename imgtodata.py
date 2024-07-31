@@ -7,7 +7,6 @@ def generate_div_cards(base_dir):
     for folder_name in os.listdir(base_dir):
         folder_path = os.path.join(base_dir, folder_name)
         if os.path.isdir(folder_path):
-            product_counter = 1
             print(f"Processing folder: {folder_path}")  # Debug print
             # List of files in the folder
             files = os.listdir(folder_path)
@@ -16,8 +15,12 @@ def generate_div_cards(base_dir):
             
             if not image_files:
                 print(f"No image files found in {folder_path}")  # Debug print
-
-            for image_name in image_files:
+                continue  # Skip this folder if no images are found
+            
+            # Determine if we need to add a number suffix
+            add_number_suffix = len(image_files) > 1
+            
+            for idx, image_name in enumerate(image_files):
                 image_path = os.path.join(folder_path, image_name)
                 if os.path.isfile(image_path):
                     print(f"Processing file: {image_path}")  # Debug print
@@ -28,16 +31,18 @@ def generate_div_cards(base_dir):
                     # Extract price from the cleaned image name
                     price = os.path.splitext(image_name_cleaned)[0]
                     
+                    # Determine product number
+                    product_counter = idx + 1 if add_number_suffix else ''
+                    
                     div_card = f'''
                     <div class="card">
-                        <img src="products/veg/{folder_name}/{image_name}" alt="{folder_name}" onclick="openModal('products/veg/{folder_name}/{image_name}')">
+                        <img src="products/veg/{folder_name}/{image_name}" alt="{folder_name} {product_counter}" onclick="openModal('products/veg/{folder_name}/{image_name}')">
                         <h1>{folder_name} {product_counter}</h1>
                         <p class="price">₹{price}</p>
                         <p><button onclick="openWhatsApp('{folder_name} {product_counter}','vegStore', '{price}')">Buy Now</button></p>
                     </div>
                     '''
                     div_cards += div_card
-                    product_counter += 1
 
     return div_cards
 
