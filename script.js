@@ -121,4 +121,23 @@ function openWhatsApp1(productName, ) {
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.location.href = whatsappURL;
 }
+grantButton.addEventListener("click", function() {
+    localStorage.setItem("consentGranted", "true");
+    function gtag() { dataLayer.push(arguments); }
 
+    gtag('consent', 'update', {
+      ad_user_data: 'granted',
+      ad_personalization: 'granted',
+      ad_storage: 'granted',
+      analytics_storage: 'granted'
+    });
+  });
+
+  // Load Tag Manager script.
+
+// Define dataLayer and the gtag function.
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+
+// Set default consent to 'denied' as a placeholder
+// Determine actual values based on your own requirements
