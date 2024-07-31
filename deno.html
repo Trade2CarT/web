@@ -3,211 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <title>Trade2Cart - Buy and Sell Scrap Items Online</title>
-    <meta name="description" content="Trade2Cart: Turning rubbish into riches. Embrace green living and transform your scrap into treasures.">
-    <meta name="keywords" content="trade2Cart,scraprecyclingVellore,sellscrapitemsonline,tradescrapforproducts,environmentallyfriendlyrecycling,Trade2Cartscrapcollection,recycleforproductsservice,sustainablescrapdisposal,buyrefurbisheditemsonline,onlinescrapcollectionservice,cashforscrap,scrapitemrecyclingTamilNadu,upcycledfurniturestore,Trade2Cartonlinestore,eco-friendlyproductswaps,refurbishedelectronicsshopping,scrapcollectionformoney,zerowasteshopping,recycleandshoponline,Trade2Cartswastemanagement,onlinerecyclingserviceIndia,sellolditemsforcash,refurbishedhomeappliances,eco-sustainableshopping,tradescrapforgoods,vegetableandfoodsales,web-basedscrapcollection,WhatsAppcheckoutshopping,dynamicproductcardsonlinestore,Trade2Cartservices">
-    <meta name="author" content="Trade2Cart">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Trade2Cart - Buy and Sell Scrap Items Online">
-    <meta property="og:description" content="Your one-stop solution for trading waste products online. Get money or products in return for your scrap items.">
-    <meta property="og:image" content="https://trade2cart.in/logo1.png">
-    <meta property="og:url" content="https://www.trade2cart.in">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Trade2Cart - Buy and Sell Scrap Items Online">
-    <meta name="twitter:description" content="Your one-stop solution for trading waste products online. Get money or products in return for your scrap items.">
-    <meta name="twitter:image" content="https://trade2cart.in/logo1.png">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="canonical" href="https://trade2cart.in/trade-waste-link">
+    <title>Trade2Cart</title>
     <style>
-        .quantity-container {
+        body {
+            font-family: Arial, sans-serif;
             display: flex;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f8f9fa;
         }
-
-        .quantity-label {
-            font-size: 11px;
-            color: #666;
-            margin-right: 5px;
-            margin-left: 5px;
-            font-weight: bolder;
-        }
-
-        .quantity-input {
-            width: 60px;
-            margin-right: 10px;
-        }
-
-        .unit {
-            font-size: 14px;
-            color: #666;
-        }
-
-        .cost {
-            margin-top: 10px;
-            font-size: 16px;
-            font-weight: bold;
-        }
-
-        #checkout-btn {
-            display: none;
-            position: fixed;
-            top: 90px;
-            right: 13px;
-            padding: 10px 20px;
-            background-color: #ff0000;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            border-radius: 10px;
-            z-index: 1000;
-            font-weight: 900;
-            font-size: 16px;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .card h1 {
-            font-size: 16px;
-            margin: 10px 0;
-        }
-
-        .card .price {
-            color: #ff5722;
-            font-size: 1.2em;
-        }
-
         .page {
             display: none;
+            text-align: center;
         }
-
         .page.active {
             display: block;
         }
-
-        .payment-options {
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+            justify-content: center;
+        }
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 1em;
+            width: 150px;
+            text-align: center;
+            background-color: #fff;
+        }
+        .buttons {
             display: flex;
             justify-content: center;
-            margin: 20px;
+            gap: 1em;
+            margin-top: 1em;
         }
-
-        .payment-option {
-            margin: 0 10px;
-            padding: 20px;
-            border: 1px solid #ccc;
+        .button {
+            padding: 0.5em 1em;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
+            background-color: #007bff;
+            color: white;
+        }
+        .button:disabled {
+            background-color: #aaa;
         }
     </style>
 </head>
 <body>
-    <!-- First Page: Trade Items Selection -->
+    <!-- Page 1: Select Trade Items -->
     <div id="page-1" class="page active">
-        <header class="header">
-            <div class="logo">
-                <a href="home.html">
-                    <img src="logo1.png" alt="trade2cart">
-                    <img src="logo.png" alt="trade2cart">
-                </a>
+        <h2>Select Trade Items</h2>
+        <div class="cards-container">
+            <!-- Dynamic trade items will be inserted here -->
+            <div class="card">
+                <img src="aluminum_scrap.jpg" alt="Aluminum Scrap" style="width:100%">
+                <h3>Aluminum Scrap</h3>
+                <p>₹80/kg</p>
             </div>
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search products..." oninput="searchProducts()">
-                <div class="search-btn"><i class="fas fa-search"></i></div>
+            <div class="card">
+                <img src="copper_scrap.jpg" alt="Copper Scrap" style="width:100%">
+                <h3>Copper Scrap</h3>
+                <p>₹300/kg</p>
             </div>
-            <div class="contact-button">
-                <button class="contact">Contact</button>
+            <div class="card">
+                <img src="steel_scrap.jpg" alt="Steel Scrap" style="width:100%">
+                <h3>Steel Scrap</h3>
+                <p>₹50/kg</p>
             </div>
-        </header>
-        <section class="button-section">
-            <div class="round-buttons">
-                <div class="round-button">
-                    <a href="products.html">
-                        <i class="fas fa-store"></i>
-                    </a>
-                </div>
-                <div class="round-button">
-                    <a href="services-link.html">
-                        <i class="fas fa-tools"></i>
-                    </a>
-                </div>
-                <div class="round-button">
-                    <a href="refurbished-link.html">
-                        <i class="fas fa-recycle"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="trade-waste-button">
-                <a href="trade-waste-link.html">
-                    <button class="trade-waste">
-                        <i class="fas fa-recycle"></i> Trade Waste
-                    </button>
-                </a>
-            </div>
-        </section>
-        <section class="cards-section">
-            <div id="product-list" class="cards-container">
-                <!-- Product cards will be dynamically generated here -->
-            </div>
-        </section>
-        <button id="checkout-btn" onclick="goToPaymentOptions()">Next</button>
-    </div>
-
-    <!-- Second Page: Payment Options -->
-    <div id="page-2" class="page">
-        <div class="payment-options">
-            <div class="payment-option" onclick="selectPaymentOption('cash')">
-                <h3>Cash</h3>
-            </div>
-            <div class="payment-option" onclick="selectPaymentOption('products')">
-                <h3>Products</h3>
-            </div>
+        </div>
+        <div class="buttons">
+            <button class="button" onclick="nextPage('page-2')">Next</button>
         </div>
     </div>
 
-    <!-- Third Page: Product Selection -->
-    <div id="page-3" class="page">
-        <section class="cards-section">
-            <div id="product-selection-list" class="cards-container">
-                <!-- Product selection cards will be dynamically generated here -->
-            </div>
-        </section>
-        <button id="finalize-selection-btn" onclick="finalizeProductSelection()">Finalize Selection</button>
+    <!-- Page 2: Cash or Product -->
+    <div id="page-2" class="page">
+        <h2>Choose Cash or Product</h2>
+        <div class="buttons">
+            <button class="button" onclick="selectOption('cash')">Cash</button>
+            <button class="button" onclick="selectOption('product')">Product</button>
+        </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Page 3: Select Products -->
+    <div id="page-3" class="page">
+        <h2>Select Products</h2>
+        <div class="cards-container">
+            <!-- Dynamic product cards will be inserted here -->
+        </div>
+        <div class="buttons">
+            <button class="button" onclick="completeSelection()">Complete</button>
+        </div>
+    </div>
+
+    <script>
+        function nextPage(pageId) {
+            document.querySelector('.page.active').classList.remove('active');
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        function selectOption(option) {
+            if (option === 'cash') {
+                alert('You selected cash. Transaction complete.');
+            } else if (option === 'product') {
+                nextPage('page-3');
+                loadRandomProducts();
+            }
+        }
+
+        function loadRandomProducts() {
+            // Replace with actual file paths
+            const productFiles = ['kgncanecraft.html', 'electronics.html', 'fancy_store.html', 'vegetable_and_food.html', 'grocery.html'];
+            const randomIndex = Math.floor(Math.random() * productFiles.length);
+            const selectedFile = productFiles[randomIndex];
+            fetch(selectedFile)
+                .then(response => response.text())
+                .then(data => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(data, 'text/html');
+                    const products = doc.querySelectorAll('.card');
+                    const container = document.querySelector('#page-3 .cards-container');
+                    container.innerHTML = '';
+                    products.forEach(product => {
+                        const clone = product.cloneNode(true);
+                        container.appendChild(clone);
+                    });
+                })
+                .catch(error => console.error('Error loading products:', error));
+        }
+
+        function completeSelection() {
+            alert('Selection complete. Thank you for trading with us!');
+        }
+
+        // Sample trade items
+        document.addEventListener('DOMContentLoaded', () => {
+            const tradeItems = ['Paper', 'Plastic', 'Metal', 'Glass', 'Electronics'];
+            const container = document.querySelector('#page-1 .cards-container');
+            tradeItems.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.textContent = item;
+                container.appendChild(card);
+            });
+        });
+    </script>
 </body>
 </html>
