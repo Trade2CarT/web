@@ -50,7 +50,7 @@
 }
 
 .quantity-label {
-    font-size: 14px; /* Adjust font size as needed */
+    font-size: 11px; /* Adjust font size as needed */
     color: #666; /* Adjust color as needed */
     margin-right: 5px; 
     margin-left: 5px; 
@@ -125,7 +125,7 @@
         }
 
         .card h1 {
-            font-size: 1.2em;
+            font-size: 16px;
             margin: 10px 0;
         }
 
@@ -206,389 +206,376 @@
     <script>
         // Sample product data (replace with your actual data)
         let products = [
-        {
+        
+        
+    {
         "id": 1,
-        "name": "Ms Iron (லேசான இரும்பு) ",
+        "name": "Ms Iron - லேசான இரும்பு",
         "price": 25,
         "imageUrl": "products/trade/iron/ms iron .jpg",
         "unit": "KG(s)"
     },
     {
         "id": 2,
-        "name": "Iron Metal Sheet  (இரும்பு உலோக தாள்)",
+        "name": "Iron Metal Sheet - இரும்பு உலோக தாள்",
         "price": 20,
         "imageUrl": "products/trade/iron/iron metal sheet.jpg",
         "unit": "KG(s)"
     },
-    
     {
         "id": 3,
-        "name": "Paint and Iron Tins (பெயிண்ட் மற்றும் இரும்பு டின்கள்)",
+        "name": "Paint and Iron Tins - பெயிண்ட் மற்றும் இரும்பு டின்கள்",
         "price": 15,
         "imageUrl": "products/trade/iron/pain and iron tins.jpg",
         "unit": "KG(s)"
     },
     {
         "id": 4,
-        "name": "Plastic (நெகிழி)",
+        "name": "Plastic - நெகிழி",
         "price": 17,
         "imageUrl": "products/trade/plastic/plastic.jpg",
         "unit": "KG(s)"
     },
     {
         "id": 5,
-        "name": "PVC Plastic (பிவிசி பிளாஸ்டிக்)",
+        "name": "PVC Plastic - பிவிசி பிளாஸ்டிக்",
         "price": 18,
         "imageUrl": "products/trade/plastic/pvc plastic.jpg",
         "unit": "KG(s)"
     },
     {
         "id": 6,
-        "name": "Stainless Steel",
+        "name": "Stainless Steel - ஸ்டெய்ன்லெஸ் ஸ்டீல்",
         "price": 35,
         "imageUrl": "products/trade/metals/stainless steel.jpg",
         "unit": "KG(s)"
     },
     {
         "id": 7,
-        "name": "cotton box",
+        "name": "Cotton Box - காடன் பெட்டி",
         "price": 8,
         "imageUrl": "products/trade/papers/cotton box.jpg",
         "unit": "KG(s)"
     },
-   
     {
         "id": 8,
-        "name": "school books",
+        "name": "School Books - பள்ளி புத்தகங்கள்",
         "price": 10,
         "imageUrl": "products/trade/papers/school books.jpg",
         "unit": "KG(s)"
     },
     {
         "id": 9,
-        "name": "note book",
+        "name": "Note Book - நோட்டு புத்தகம்",
         "price": 14,
         "imageUrl": "products/trade/papers/note book.jpg",
         "unit": "KG(s)"
     },
     {
         "id": 10,
-        "name": "Tamil-News-Paper",
+        "name": "Tamil Newspaper - தமிழ் நாளிதழ்",
         "price": 15,
         "imageUrl": "products/trade/papers/Tamil-News-Paper.jpg",
         "unit": "KG(s)"
     },
     {
         "id": 11,
-        "name": "Tamil & English Navels",
+        "name": "Tamil & English Novels - தமிழ் & ஆங்கில நாவல்கள்",
         "price": 5,
         "imageUrl": "products/trade/papers/Books_06.jpg",
         "unit": "KG(s)"
     },
     {
         "id": 12,
-        "name": "BB cards",
+        "name": "BB Cards - பிபி அட்டை",
         "price": 2,
         "imageUrl": "products/trade/papers/Pirated-DVDs-of24236.jpg",
         "unit": "KG(s)"
     },
     {
         "id": 13,
-        "name": "aluminum",
+        "name": "Aluminum - அலுமினியம்",
         "price": 130,
         "imageUrl": "products/trade/metals/aluminum.jpg",
         "unit": "KG(s)"
     },
     {
         "id": 14,
-        "name": "bc aluminum ",
-        "price": 110 ,
+        "name": "BC Aluminum - பிசி அலுமினியம்",
+        "price": 110,
         "imageUrl": "products/trade/metals/bc aluminum.jpg",
         "unit": "KG(s)"
     },
     {
         "id": 15,
-        "name": "bc mixed",
+        "name": "BC Mixed - பிசி கலவை",
         "price": 70,
         "imageUrl": "products/trade/metals/bc mixed.jpg",
         "unit": "KG(s)"
     },
     {
         "id": 16,
-        "name": "copper",
+        "name": "Copper - தாமிரம்",
         "price": 600,
         "imageUrl": "products/trade/metals/copper.jpg",
         "unit": "KG(s)"
     },
     {
         "id": 17,
-        "name": "brass",
+        "name": "Brass - உலோகம்",
         "price": 400,
         "imageUrl": "products/trade/metals/brass.jpg",
         "unit": "KG(s)"
     },
     {
         "id": 18,
-        "name": "Radiator",
+        "name": "Radiator - ரேடியேட்டர்",
         "price": 60,
         "imageUrl": "products/trade/battery/images (15).jpeg.jpg",
         "unit": "KG(s)"
     },
-    
     {
         "id": 19,
-        "name": "mc battery",
+        "name": "MC Battery - எம்சிகே பேட்டரி",
         "price": 59,
         "imageUrl": "products/trade/battery/mc battery.jpg",
         "unit": "KG(s)"
     },
     {
         "id": 20,
-        "name": "vehicle battery",
+        "name": "Vehicle Battery - வாகன பேட்டரி",
         "price": 700,
         "imageUrl": "products/trade/battery/vehicle battery.jpg",
-        "unit": "Unit(s)"
+        "unit": "piece(s)"
     },
     {
         "id": 21,
-        "name": "ups battery",
+        "name": "UPS Battery - யூபிஎஸ் பேட்டரி",
         "price": 1600,
         "imageUrl": "products/trade/battery/ups battery.jpg",
-        "unit": "Unit(s)"
+        "unit": "piece(s)"
     },
     {
         "id": 22,
-        "name": "black plastic",
+        "name": "Black Plastic - கறுப்பு பிளாஸ்டிக்",
         "price": 5,
         "imageUrl": "products/trade/plastic/black plastic .jpg",
         "unit": "KG(s)"
     },
     {
         "id": 23,
-        "name": "govt fan",
+        "name": "Govt Fan - அரசு காற்றெடுக்கும் பாஸு",
         "price": 55,
         "imageUrl": "products/trade/unused products/govt fan.jpg",
-        "unit": "Unit(s)"
+        "unit": "piece(s)"
     },
-
     {
         "id": 24,
-        "name": "govt mixxer",
+        "name": "Govt Mixer - அரசு மிக்சர்",
         "price": 60,
         "imageUrl": "products/trade/unused products/govt mixxer.jpg",
-        "unit": "Unit(s)"
+        "unit": "piece(s)"
     },
     {
         "id": 25,
-        "name": "govt grainder",
+        "name": "Govt Grinder - அரசு கிரைண்டர்",
         "price": 185,
         "imageUrl": "products/trade/unused products/govt grainder.jpg",
-        "unit": "Unit(s)"
+        "unit": "piece(s)"
     },
-
     {
         "id": 26,
-        "name": "company table fan",
+        "name": "Company Table Fan - நிறுவன டேபிள் பாஸு",
         "price": 85,
         "imageUrl": "products/trade/unused products/comany table fan.jpg",
-        "unit": "Unit(s)"
+        "unit": "piece(s)"
     },
-   
     {
         "id": 27,
-        "name": "company mixxer",
+        "name": "Company Mixer - நிறுவன மிக்சர்",
         "price": 85,
         "imageUrl": "products/trade/unused products/company mixxer.jpg",
-        "unit": "Unit(s)"
+        "unit": "piece(s)"
     },
     {
         "id": 28,
-        "name": "company grainder",
+        "name": "Company Grinder - நிறுவன கிரைண்டர்",
         "price": 185,
         "imageUrl": "products/trade/unused products/company grainder.jpg",
-        "unit": "Unit(s)"
+        "unit": "piece(s)"
     },
     {
         "id": 29,
-        "name": "hotel big grainder",
+        "name": "Hotel Big Grinder - ஹோட்டல் பெரிய கிரைண்டர்",
         "price": 550,
         "imageUrl": "products/trade/unused products/hotel big grainder .jpg",
-        "unit": "Unit(s)"
+        "unit": "piece(s)"
     },
     {
         "id": 30,
-        "name": "Water Purifier",
+        "name": "Water Purifier - நீரின் சுத்திகரிப்பு",
         "price": 75,
         "imageUrl": "products/trade/unused products/images (16).jpeg.jpg",
-        "unit": "Unit(s)"
+        "unit": "piece(s)"
     },
     {
         "id": 31,
-        "name": "TV stabilizer",
+        "name": "TV Stabilizer - டிவி ஸ்டேபிலைசர்",
         "price": 50,
         "imageUrl": "products/trade/unused products/TV stabilizer.jpg",
-        "unit": "Unit(s)"
+        "unit": "piece(s)"
     },
     {
         "id": 32,
-        "name": "AC stabilizer",
+        "name": "AC Stabilizer - ஏசி ஸ்டேபிலைசர்",
         "price": 90,
         "imageUrl": "products/trade/unused products/AC stabilizer.jpg",
-        "unit": "Unit(s)"
+        "unit": "piece(s)"
     },
     {
         "id": 33,
-        "name": "water heater",
+        "name": "Water Heater - நீரின் அடிக்கான்",
         "price": 30,
         "imageUrl": "products/trade/unused products/water heater.jpg",
-        "unit": "Unit(s)"
+        "unit": "piece(s)"
     },
     {
         "id": 34,
-        "name": "cooler tower fan",
+        "name": "Cooler Tower Fan - குளிர்சாதன குழாய் பாஸு",
         "price": 60,
         "imageUrl": "products/trade/unused products/cooler tower.jpg",
-        "unit": "Unit(s)"
+        "unit": "piece(s)"
     },
     {
         "id": 35,
-        "name": "cooler fan",
+        "name": "Cooler Fan - குளிர்சாதன பாஸு",
         "price": 200,
         "imageUrl": "products/trade/unused products/cooler fan.jpg",
-        "unit": "Unit(s)"
+        "unit": "piece(s)"
     },
     {
         "id": 36,
-        "name": "ups inverter",
+        "name": "UPS Inverter - யூபிஎஸ் இன்வர்டர்",
         "price": 220,
         "imageUrl": "products/trade/unused products/ups inverter.jpg",
-        "unit": "Unit(s)"
+        "unit": "piece(s)"
     },
     {
         "id": 37,
-        "name": "old model geyser",
+        "name": "Old Model Geyser - பழைய மாதிரி கீசர்",
         "price": 350,
         "imageUrl": "products/trade/unused products/old geyser.png",
-        "unit": "Unit(s)"
+        "unit": "piece(s)"
     },
-
-
-    
-
-
-
     {
         "id": 38,
-        "name": "new model geysar",
+        "name": "New Model Geyser - புதிய மாதிரி கீசர்",
         "price": 220,
         "imageUrl": "products/trade/unused products/new model geysar.jpg",
-        "unit": "Unit(s)"
+        "unit": "piece(s)"
     },
     {
         "id": 39,
-        "name": "Single door small Fridge",
+        "name": "Single Door Small Fridge - ஒற்றை கதவு சிறிய ஃபிரிட்ஜ்",
         "price": 450,
         "imageUrl": "products/trade/unused products/single door small.jpg",
-        "unit": "Unit(s)"
+        "unit": "piece(s)"
     },
-   
     {
         "id": 40,
-        "name": "single door big Fridge",
+        "name": "Single Door Big Fridge - ஒற்றை கதவு பெரிய ஃபிரிட்ஜ்",
         "price": 600,
         "imageUrl": "products/trade/unused products/single door big.jpg",
-        "unit": "Unit(s)"
+        "unit": "piece(s)"
     },
     {
         "id": 41,
-        "name": "double door Fridge",
+        "name": "Double Door Fridge - இரட்டை கதவு ஃபிரிட்ஜ்",
         "price": 900,
         "imageUrl": "products/trade/unused products/double door.jpg",
-        "unit": "Unit(s)"
+        "unit": "piece(s)"
     },
     {
         "id": 42,
-        "name": "washing machine semi plastic",
+        "name": "Washing Machine Semi Plastic - செமி பிளாஸ்டிக் மசினி",
         "price": 450,
         "imageUrl": "products/trade/unused products/washing machine semi plastic.jpg",
-        "unit": "Unit(s)"
+        "unit": "piece(s)"
     },
     {
         "id": 43,
-        "name": "Washing Machine TOpLoad",
+        "name": "Washing Machine Top Load - மேல் ஏற்றலுக்கு மசினி",
         "price": 600,
         "imageUrl": "products/trade/unused products/images (9).jpeg.jpg",
-        "unit": "Unit(s)"
+        "unit": "piece(s)"
     },
     {
         "id": 43,
-        "name": "washing machine frontload",
+        "name": "Washing Machine Front Load - முன் ஏற்றலுக்கு மசினி",
         "price": 750,
         "imageUrl": "products/trade/unused products/washing machine frontload.jpg",
-        "unit": "Unit(s)"
+        "unit": "piece(s)"
     },
     {
         "id": 44,
-        "name": "de frezer small",
+        "name": "Deep Freezer Small - சிறிய டீப் ஃப்ரீசர்",
         "price": 800,
         "imageUrl": "products/trade/unused products/de frezer small.jpg",
-        "unit": "Unit(s)"
+        "unit": "piece(s)"
     },
     {
         "id": 45,
-        "name": "de frezer big",
+        "name": "Deep Freezer Big - பெரிய டீப் ஃப்ரீசர்",
         "price": 1100,
         "imageUrl": "products/trade/unused products/images (14).jpeg.jpg",
-        "unit": "Unit(s)"
+        "unit": "piece(s)"
     },
-    
-    
-   
     {
         "id": 46,
-        "name": "AC 1 ton",
+        "name": "AC 1 Ton - ஏசி 1 டன்",
         "price": 1600,
         "imageUrl": "products/trade/unused products/AC 1 ton.jpg",
-        "unit": "Unit(s)"
+        "unit": "piece(s)"
     },
     {
         "id": 47,
-        "name": "AC 1.5 ton",
+        "name": "AC 1.5 Ton - ஏசி 1.5 டன்",
         "price": 1950,
         "imageUrl": "products/trade/unused products/AC 1.5 ton.jpg",
-        "unit": "Unit(s)"
+        "unit": "piece(s)"
     },
-    
     {
         "id": 48,
-        "name": "cell phone",
+        "name": "Cell Phone - செல்போன்",
         "price": 18,
         "imageUrl": "products/trade/unused products/cell phone.jpg",
-        "unit": "Unit(s)"
+        "unit": "piece(s)"
     },
-  
-   
-    
-   
-   
     {
         "id": 49,
-        "name": "electronic e waste",
+        "name": "Electronic E Waste - மின்சார மின் கழிவுகள்",
         "price": 8,
         "imageUrl": "products/trade/unused products/electronic e waste.jpg",
-        "unit": "Unit(s)"
+        "unit": "piece(s)"
     }
-    
-  
-   
-   
-   
-   
-   
-   
-  
-   
+
+
 ];
+
+// Sort products by price in descending order
+products.sort((a, b) => b.price - a.price);
+
+// Output sorted products
+console.log(products);
+
+   
+   
+   
+   
+   
+  
+   
+
 
 
         // Function to dynamically generate product cards
