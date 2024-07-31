@@ -537,7 +537,7 @@ a {
 
 @media (max-width: 600px) {
     .banner-section {
-        height: 40%; }
+        height: 20%; }
     .cards-container {
         grid-template-columns: repeat(2, 1fr);
     }
