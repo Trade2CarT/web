@@ -121,23 +121,20 @@ function openWhatsApp1(productName, ) {
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.location.href = whatsappURL;
 }
-grantButton.addEventListener("click", function() {
-    localStorage.setItem("consentGranted", "true");
-    function gtag() { dataLayer.push(arguments); }
+document.addEventListener("DOMContentLoaded", function() {
+    // Function to show the overlay
+    function showOverlay() {
+        document.getElementById('pageOverlay').style.display = 'flex';
+    }
 
-    gtag('consent', 'update', {
-      ad_user_data: 'granted',
-      ad_personalization: 'granted',
-      ad_storage: 'granted',
-      analytics_storage: 'granted'
-    });
-  });
+    // Function to hide the overlay
+    function hideOverlay() {
+        document.getElementById('pageOverlay').style.display = 'none';
+    }
 
-  // Load Tag Manager script.
+    // Example: Show the overlay when the page loads
+    showOverlay();
 
-// Define dataLayer and the gtag function.
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-
-// Set default consent to 'denied' as a placeholder
-// Determine actual values based on your own requirements
+    // Example: Hide the overlay after 3 seconds
+    setTimeout(hideOverlay, 3000);
+});
