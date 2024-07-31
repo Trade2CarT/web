@@ -1,53 +1,65 @@
-document.addEventListener('DOMContentLoaded', function () {
-    let currentIndex = 0;
-    const banners = document.querySelectorAll('.banner');
-    const dots = document.querySelectorAll('.dot');
-    const bannerContainer = document.querySelector('.banner-container');
+let currentIndex = 0;
+const banners = document.querySelectorAll('.banner');
+const dots = document.querySelectorAll('.dot');
+const bannerContainer = document.querySelector('.banner-container');
 
-    let bannerWidth = banners[0].offsetWidth + 40; // Adjusted width
+let bannerWidth = banners[0].offsetWidth + 40; // Adjusted width
 
-    function showBanner(index) {
-        const offset = -index * bannerWidth;
-        bannerContainer.style.transform = `translateX(${offset}px)`;
-        dots.forEach(dot => dot.classList.remove('active'));
-        dots[index].classList.add('active');
-    }
+function showBanner(index) {
+    const offset = -index * bannerWidth;
+    bannerContainer.style.transform = `translateX(${offset}px)`;
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
+}
 
-    function nextBanner() {
-        currentIndex = (currentIndex + 1) % banners.length;
-        showBanner(currentIndex);
-    }
-
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            currentIndex = index;
-            showBanner(index);
-        });
-    });
-
-    setInterval(nextBanner, 3000); // Auto slide every 3 seconds
-
-    window.addEventListener('resize', () => {
-        const newBannerWidth = banners[0].offsetWidth + 40;
-        if (newBannerWidth !== bannerWidth) {
-            bannerWidth = newBannerWidth;
-            showBanner(currentIndex);
-        }
-    });
-
-    // Initial display
+function nextBanner() {
+    currentIndex = (currentIndex + 1) % banners.length;
     showBanner(currentIndex);
+}
+
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        currentIndex = index;
+        showBanner(index);
+    });
 });
 
-//random
+setInterval(nextBanner, 3000); // Auto slide every 3 seconds
+
+window.addEventListener('resize', () => {
+    const newBannerWidth = banners[0].offsetWidth + 40;
+    if (newBannerWidth !== bannerWidth) {
+        bannerWidth = newBannerWidth;
+        showBanner(currentIndex);
+    }
+});
+
+// Initial display
+showBanner(currentIndex);
+
+function searchProducts() {
+    const input = document.querySelector('.search-input').value.toLowerCase();
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+        const productName = card.querySelector('h1').innerText.toLowerCase();
+        card.style.display = productName.includes(input) ? "block" : "none";
+    });
+}
+
+// Function to extract and display random products from HTML files
+document.addEventListener('DOMContentLoaded', () => {
+    displayRandomProducts();
+    document.getElementById('closeModal').addEventListener('click', closeModal);
+});
 
 function displayRandomProducts() {
-    const htmlFiles = ['kgncanecraft.html', 'electronics.html', 'fancy_store.html', 'vegetable_and_food.html', 'grocery.html'];
-    const cardsContainers = document.querySelectorAll('.cards-container'); // Select all cards containers
+    const htmlFiles = ['kgncanecraft.html', 'electronics.html', 'fancy_store.html', 'vegetable_and_food.html','grocery.html'];
+    const cardsContainer = document.querySelector('.cards-container');
     const cardsPerFile = 5;
 
-    if (cardsContainers.length === 0) {
-        console.error('No .cards-container elements found on the page.');
+    if (!cardsContainer) {
+        console.error('No .cards-container element found on the page.');
         return;
     }
 
@@ -69,11 +81,9 @@ function displayRandomProducts() {
                     const shuffledCards = cards.sort(() => 0.5 - Math.random());
                     const selectedCards = shuffledCards.slice(0, Math.min(cardsPerFile, shuffledCards.length));
 
-                    selectedCards.forEach((card, index) => {
-                        if (cardsContainers[index]) {
-                            const clonedCard = card.cloneNode(true);
-                            cardsContainers[index].appendChild(clonedCard);
-                        }
+                    selectedCards.forEach(card => {
+                        const clonedCard = card.cloneNode(true);
+                        cardsContainer.appendChild(clonedCard);
                     });
                 } else {
                     console.warn(`No product cards found in ${file}`);
