@@ -122,21 +122,3 @@ function openWhatsApp1(productName, ) {
     window.location.href = whatsappURL;
 }
 
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-
-// Set default consent to 'denied' as a placeholder
-// Determine actual values based on your own requirements
-// JavaScript to handle the logo intro and page overlay
-document.addEventListener("DOMContentLoaded", function() {
-    // Show the page overlay and logo intro
-    document.body.insertAdjacentHTML('afterbegin', '<div id="pageOverlay" class="page-overlay"><div class="logo-intro"><img src="logo1.png" alt="Trade2Cart Logo"></div></div>');
-
-    // Hide the logo intro and page overlay after 2 seconds
-    setTimeout(function() {
-        document.getElementById('pageOverlay').style.opacity = '0';
-        setTimeout(function() {
-            document.getElementById('pageOverlay').remove();
-        }, 1000); // Match with the fade-out animation duration
-    }, 2000); // 2000 milliseconds = 2 seconds
-});
