@@ -3,156 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trade2Cart</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f8f9fa;
-        }
-        .page {
-            display: none;
-            text-align: center;
-        }
-        .page.active {
-            display: block;
-        }
-        .cards-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1em;
-            justify-content: center;
-        }
-        .card {
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 1em;
-            width: 150px;
-            text-align: center;
-            background-color: #fff;
-        }
-        .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1em;
-            margin-top: 1em;
-        }
-        .button {
-            padding: 0.5em 1em;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            background-color: #007bff;
-            color: white;
-        }
-        .button:disabled {
-            background-color: #aaa;
-        }
-    </style>
+    <title>Trade Waste</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Page 1: Select Trade Items -->
-    <div id="page-1" class="page active">
-        <h2>Select Trade Items</h2>
-        <div class="cards-container">
-            <!-- Dynamic trade items will be inserted here -->
-            <div class="card">
-                <img src="aluminum_scrap.jpg" alt="Aluminum Scrap" style="width:100%">
-                <h3>Aluminum Scrap</h3>
-                <p>₹80/kg</p>
+    <div class="container">
+        <h1>Trade Waste</h1>
+
+        <!-- Trade Waste Form -->
+        <div id="trade-waste-form">
+            <h2>Select Trade Waste Items</h2>
+            <div id="product-list">
+                <!-- Dynamic content will be loaded here -->
             </div>
-            <div class="card">
-                <img src="copper_scrap.jpg" alt="Copper Scrap" style="width:100%">
-                <h3>Copper Scrap</h3>
-                <p>₹300/kg</p>
-            </div>
-            <div class="card">
-                <img src="steel_scrap.jpg" alt="Steel Scrap" style="width:100%">
-                <h3>Steel Scrap</h3>
-                <p>₹50/kg</p>
-            </div>
+            <p>Total Amount: $<span id="total-amount">0</span></p>
+            <button onclick="showPaymentOptions()">Book Schedule</button>
         </div>
-        <div class="buttons">
-            <button class="button" onclick="nextPage('page-2')">Next</button>
+
+        <!-- Payment Options -->
+        <div id="payment-options" class="hidden">
+            <h2>Choose Payment Option</h2>
+            <button onclick="handleCash()">Cash</button>
+            <button onclick="handleProducts()">Products</button>
         </div>
     </div>
 
-    <!-- Page 2: Cash or Product -->
-    <div id="page-2" class="page">
-        <h2>Choose Cash or Product</h2>
-        <div class="buttons">
-            <button class="button" onclick="selectOption('cash')">Cash</button>
-            <button class="button" onclick="selectOption('product')">Product</button>
-        </div>
-    </div>
-
-    <!-- Page 3: Select Products -->
-    <div id="page-3" class="page">
-        <h2>Select Products</h2>
-        <div class="cards-container">
-            <!-- Dynamic product cards will be inserted here -->
-        </div>
-        <div class="buttons">
-            <button class="button" onclick="completeSelection()">Complete</button>
-        </div>
-    </div>
-
-    <script>
-        function nextPage(pageId) {
-            document.querySelector('.page.active').classList.remove('active');
-            document.getElementById(pageId).classList.add('active');
-        }
-
-        function selectOption(option) {
-            if (option === 'cash') {
-                alert('You selected cash. Transaction complete.');
-            } else if (option === 'product') {
-                nextPage('page-3');
-                loadRandomProducts();
-            }
-        }
-
-        function loadRandomProducts() {
-            // Replace with actual file paths
-            const productFiles = ['kgncanecraft.html', 'electronics.html', 'fancy_store.html', 'vegetable_and_food.html', 'grocery.html'];
-            const randomIndex = Math.floor(Math.random() * productFiles.length);
-            const selectedFile = productFiles[randomIndex];
-            fetch(selectedFile)
-                .then(response => response.text())
-                .then(data => {
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(data, 'text/html');
-                    const products = doc.querySelectorAll('.card');
-                    const container = document.querySelector('#page-3 .cards-container');
-                    container.innerHTML = '';
-                    products.forEach(product => {
-                        const clone = product.cloneNode(true);
-                        container.appendChild(clone);
-                    });
-                })
-                .catch(error => console.error('Error loading products:', error));
-        }
-
-        function completeSelection() {
-            alert('Selection complete. Thank you for trading with us!');
-        }
-
-        // Sample trade items
-        document.addEventListener('DOMContentLoaded', () => {
-            const tradeItems = ['Paper', 'Plastic', 'Metal', 'Glass', 'Electronics'];
-            const container = document.querySelector('#page-1 .cards-container');
-            tradeItems.forEach(item => {
-                const card = document.createElement('div');
-                card.className = 'card';
-                card.textContent = item;
-                container.appendChild(card);
-            });
-        });
-    </script>
+    <script src="trade-waste.js"></script>
 </body>
 </html>
