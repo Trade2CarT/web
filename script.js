@@ -1,153 +1,142 @@
-document.addEventListener('DOMContentLoaded', () => {
-    let currentIndex = 0;
-    const banners = document.querySelectorAll('.banner');
-    const dots = document.querySelectorAll('.dot');
-    const bannerContainer = document.querySelector('.banner-container');
+let currentIndex = 0;
+const banners = document.querySelectorAll('.banner');
+const dots = document.querySelectorAll('.dot');
+const bannerContainer = document.querySelector('.banner-container');
 
-    if (banners.length === 0 || dots.length === 0 || !bannerContainer) {
-        console.error('Required elements not found on the page.');
+let bannerWidth = banners[0].offsetWidth + 40; // Adjusted width
+
+function showBanner(index) {
+    const offset = -index * bannerWidth;
+    bannerContainer.style.transform = `translateX(${offset}px)`;
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
+}
+
+function nextBanner() {
+    currentIndex = (currentIndex + 1) % banners.length;
+    showBanner(currentIndex);
+}
+
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        currentIndex = index;
+        showBanner(index);
+    });
+});
+
+setInterval(nextBanner, 3000); // Auto slide every 3 seconds
+
+window.addEventListener('resize', () => {
+    const newBannerWidth = banners[0].offsetWidth + 40;
+    if (newBannerWidth !== bannerWidth) {
+        bannerWidth = newBannerWidth;
+        showBanner(currentIndex);
+    }
+});
+
+// Initial display
+showBanner(currentIndex);
+
+function searchProducts() {
+    const input = document.querySelector('.search-input').value.toLowerCase();
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+        const productName = card.querySelector('h1').innerText.toLowerCase();
+        card.style.display = productName.includes(input) ? "block" : "none";
+    });
+}
+
+// Function to extract and display random products from HTML files
+document.addEventListener('DOMContentLoaded', () => {
+    displayRandomProducts();
+    document.getElementById('closeModal').addEventListener('click', closeModal);
+});
+
+function displayRandomProducts() {
+    const htmlFiles = ['kgncanecraft.html', 'electronics.html', 'fancy_store.html', 'vegetable_and_food.html','grocery.html'];
+    const cardsContainer = document.querySelector('.cards-container');
+    const cardsPerFile = 5;
+
+    if (!cardsContainer) {
+        console.error('No .cards-container element found on the page.');
         return;
     }
 
-    let bannerWidth = banners[0].offsetWidth + 40; // Adjusted width
+    htmlFiles.forEach(file => {
+        fetch(file)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch ${file}: ${response.status} ${response.statusText}`);
+                }
+                return response.text();
+            })
+            .then(html => {
+                const tempElement = document.createElement('div');
+                tempElement.innerHTML = html;
+                const cards = Array.from(tempElement.querySelectorAll('.card'));
 
-    function showBanner(index) {
-        const offset = -index * bannerWidth;
-        bannerContainer.style.transform = `translateX(${offset}px)`;
-        dots.forEach(dot => dot.classList.remove('active'));
-        dots[index].classList.add('active');
-    }
+                if (cards.length > 0) {
+                    // Shuffle the cards and select the first 'cardsPerFile'
+                    const shuffledCards = cards.sort(() => 0.5 - Math.random());
+                    const selectedCards = shuffledCards.slice(0, Math.min(cardsPerFile, shuffledCards.length));
 
-    function nextBanner() {
-        currentIndex = (currentIndex + 1) % banners.length;
-        showBanner(currentIndex);
-    }
-
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            currentIndex = index;
-            showBanner(index);
-        });
+                    selectedCards.forEach(card => {
+                        const clonedCard = card.cloneNode(true);
+                        cardsContainer.appendChild(clonedCard);
+                    });
+                } else {
+                    console.warn(`No product cards found in ${file}`);
+                }
+            })
+            .catch(error => {
+                console.error(`Error fetching ${file}:`, error);
+            });
     });
+}
 
-    setInterval(nextBanner, 3000); // Auto slide every 3 seconds
+function openModal(src) {
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    modalImg.src = src;
+    modal.classList.add('show');
+    modal.style.display = 'block';
+}
 
-    window.addEventListener('resize', () => {
-        const newBannerWidth = banners[0].offsetWidth + 40;
-        if (newBannerWidth !== bannerWidth) {
-            bannerWidth = newBannerWidth;
-            showBanner(currentIndex);
-        }
-    });
+function closeModal() {
+    const modal = document.getElementById('imageModal');
+    modal.classList.remove('show');
+    modal.style.display = 'none';
+}
 
-    // Initial display
-    showBanner(currentIndex);
+function openWhatsApp(productName, productType, price) {
+    const phoneNumber = '+919788335029';
+    const message = `I'm interested in buying ${productType} product: ${productName} with price: ₹${price}`;
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.location.href = whatsappURL;
+}
+function openWhatsApp1(productName, ) {
+    const phoneNumber = '+919788335029';
+    const message = `I'm interested in the product: ${productName} `;
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.location.href = whatsappURL;
+}
 
-    // Additional code
-    displayRandomProducts();
-    const closeModalButton = document.getElementById('closeModal');
-    if (closeModalButton) {
-        closeModalButton.addEventListener('click', closeModal);
-    }
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
 
-    function searchProducts() {
-        const input = document.querySelector('.search-input').value.toLowerCase();
-        const cards = document.querySelectorAll('.card');
+// Set default consent to 'denied' as a placeholder
+// Determine actual values based on your own requirements
+// JavaScript to handle the logo intro and page overlay
+document.addEventListener("DOMContentLoaded", function() {
+    // Show the page overlay and logo intro
+    document.body.insertAdjacentHTML('afterbegin', '<div id="pageOverlay" class="page-overlay"><div class="logo-intro"><img src="logo1.png" alt="Trade2Cart Logo"></div></div>');
 
-        cards.forEach(card => {
-            const productName = card.querySelector('h1').innerText.toLowerCase();
-            card.style.display = productName.includes(input) ? "block" : "none";
-        });
-    }
-
-    // Random products display
-    function displayRandomProducts() {
-        const htmlFiles = ['kgncanecraft.html', 'electronics.html', 'fancy_store.html', 'vegetable_and_food.html', 'grocery.html'];
-        const cardsContainers = document.querySelectorAll('.cards-container'); // Select all cards containers
-        const cardsPerFile = 5;
-
-        if (cardsContainers.length === 0) {
-            console.error('No .cards-container elements found on the page.');
-            return;
-        }
-
-        htmlFiles.forEach(file => {
-            fetch(file)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Failed to fetch ${file}: ${response.status} ${response.statusText}`);
-                    }
-                    return response.text();
-                })
-                .then(html => {
-                    const tempElement = document.createElement('div');
-                    tempElement.innerHTML = html;
-                    const cards = Array.from(tempElement.querySelectorAll('.card'));
-
-                    if (cards.length > 0) {
-                        // Shuffle the cards and select the first 'cardsPerFile'
-                        const shuffledCards = cards.sort(() => 0.5 - Math.random());
-                        const selectedCards = shuffledCards.slice(0, Math.min(cardsPerFile, shuffledCards.length));
-
-                        selectedCards.forEach((card, index) => {
-                            if (cardsContainers[index]) {
-                                const clonedCard = card.cloneNode(true);
-                                cardsContainers[index].appendChild(clonedCard);
-                            }
-                        });
-                    } else {
-                        console.warn(`No product cards found in ${file}`);
-                    }
-                })
-                .catch(error => {
-                    console.error(`Error fetching ${file}:`, error);
-                });
-        });
-    }
-
-    function openModal(src) {
-        const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('modalImage');
-        if (modal && modalImg) {
-            modalImg.src = src;
-            modal.classList.add('show');
-            modal.style.display = 'block';
-        }
-    }
-
-    function closeModal() {
-        const modal = document.getElementById('imageModal');
-        if (modal) {
-            modal.classList.remove('show');
-            modal.style.display = 'none';
-        }
-    }
-
-    function openWhatsApp(productName, productType, price) {
-        const phoneNumber = '+919788335029';
-        const message = `I'm interested in buying ${productType} product: ${productName} with price: ₹${price}`;
-        const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-        window.location.href = whatsappURL;
-    }
-
-    function openWhatsApp1(productName) {
-        const phoneNumber = '+919788335029';
-        const message = `I'm interested in the product: ${productName}`;
-        const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-        window.location.href = whatsappURL;
-    }
-
-    // Delay hiding the overlay and logo intro
+    // Hide the logo intro and page overlay after 2 seconds
     setTimeout(function() {
-        const pageOverlay = document.getElementById('pageOverlay');
-        if (pageOverlay) {
-            pageOverlay.style.transition = 'opacity 1s ease-out'; // Smooth transition for removal
-            pageOverlay.style.opacity = '0'; // Start fading out
-
-            // Remove the overlay from the DOM after fade-out
-            setTimeout(function() {
-                pageOverlay.remove();
-            }, 1000); // Matches the duration of the opacity transition
-        }
-    }, 2000); // Show the logo and overlay for 2 seconds
+        document.getElementById('pageOverlay').style.opacity = '0';
+        setTimeout(function() {
+            document.getElementById('pageOverlay').remove();
+        }, 1000); // Match with the fade-out animation duration
+    }, 2000); // 2000 milliseconds = 2 seconds
 });
