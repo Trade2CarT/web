@@ -643,3 +643,64 @@ a:hover {
     font-weight: bold;
 }
 
+/* Ensure the entire page is white during the overlay */
+.page-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 999; /* Ensure it covers the whole page */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 1s ease-out; /* Smooth transition for removal */
+}
+
+/* Style for the logo intro */
+.logo-intro {
+    text-align: center;
+}
+
+/* Logo styling */
+.logo-intro img {
+    max-width: 40%;
+    height: auto; /* Maintain aspect ratio */
+    animation: logoAnimation 2s forwards; /* Apply animation */
+}
+
+/* Keyframes for the logo animation */
+@keyframes logoAnimation {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.2);
+    }
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .page-overlay {
+        /* Adjust overlay styles for smaller screens if necessary */
+    }
+
+    .logo-intro img {
+        /* Scale down logo size for mobile devices */
+        max-width: 80%; /* Adjust as needed */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-intro img {
+        /* Further adjustments for very small screens */
+        max-width: 70%; /* Adjust as needed */
+    }
+}
