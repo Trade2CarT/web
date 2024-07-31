@@ -39,6 +39,12 @@ document.addEventListener('DOMContentLoaded', function () {
         // Initial display
         showBanner(currentIndex);
     }
+});
+
+
+        // Initial display
+        showBanner(currentIndex);
+    }
 
     function searchProducts() {
         const input = document.querySelector('.search-input').value.toLowerCase();
