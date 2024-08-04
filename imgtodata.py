@@ -36,10 +36,10 @@ def generate_div_cards(base_dir):
                     
                     div_card = f'''
                     <div class="card">
-                        <img src="products/veg/{folder_name}/{image_name}" alt="{folder_name} {product_counter}" onclick="openModal('products/veg/{folder_name}/{image_name}')">
+                        <img src="products/Services/{folder_name}/{image_name}" alt="{folder_name} {product_counter}" onclick="openModal('products/Services/{folder_name}/{image_name}')">
                         <h1>{folder_name} {product_counter}</h1>
                         <p class="price">₹{price}</p>
-                        <p><button onclick="openWhatsApp('{folder_name} {product_counter}','vegStore', '{price}')">Buy Now</button></p>
+                        <p><button onclick="openWhatsApp('{folder_name} {product_counter}','Services', '{price}')">Buy Now</button></p>
                     </div>
                     '''
                     div_cards += div_card
@@ -47,7 +47,7 @@ def generate_div_cards(base_dir):
     return div_cards
 
 # Set the base directory where your product folders are located
-base_dir = r'D:\veg'
+base_dir = r'D:\veg\Services\resized'
 
 # Generate the div cards HTML
 div_cards_html = generate_div_cards(base_dir)
