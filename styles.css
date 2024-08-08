@@ -297,7 +297,7 @@ body {
 .banner {
     position: relative;
     flex: 0 0 calc(100% - 20px); /* Adjust width to account for margins */
-    margin: 0 20px; /* Adjust margins as needed */
+    margin: 0 40px; /* Adjust margins as needed */
     height: 100%;
 }
 
@@ -549,7 +549,7 @@ a {
         position: relative;
         flex: 0 0 calc(100% -20px); /* Adjust width to account for margins */
         margin: 0px 20px; /* Adjust margins as needed */
-        height: 50%;
+        height: 100%;
     }
 
     .modal-content {
