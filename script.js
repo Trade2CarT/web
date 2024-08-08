@@ -1,4 +1,4 @@
-let currentIndex = 0;
+/*let currentIndex = 0;
 const banners = document.querySelectorAll('.banner');
 const dots = document.querySelectorAll('.dot');
 const bannerContainer = document.querySelector('.banner-container');
@@ -35,7 +35,7 @@ window.addEventListener('resize', () => {
 });
 
 // Initial display
-showBanner(currentIndex);
+showBanner(currentIndex); */
 
 function searchProducts() {
     const input = document.querySelector('.search-input').value.toLowerCase();
