@@ -537,18 +537,18 @@ a {
 
 @media (max-width: 600px) {
     .banner-section {
-        height: 20%; }
+        height: 100%; }
     .cards-container {
         grid-template-columns: repeat(2, 1fr);
     }
     .dots {
         top: auto;
-        bottom: 500px; /* Adjust bottom position for mobile view */
+        bottom: 670px; /* Adjust bottom position for mobile view */
     }
     .banner {
         position: relative;
-        flex: 0 0 calc(100% -10px); /* Adjust width to account for margins */
-        margin: 0px 20px; /* Adjust margins as needed */
+        flex: 0 0 calc(100% -40px); /* Adjust width to account for margins */
+        margin: 0px 10px; /* Adjust margins as needed */
         height: 100%;
     }
 
