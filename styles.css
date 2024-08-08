@@ -296,7 +296,7 @@ body {
 
 .banner {
     position: relative;
-    flex: 0 0 calc(100% - 40px); /* Adjust width to account for margins */
+    flex: 0 0 calc(100% - 20px); /* Adjust width to account for margins */
     margin: 0 20px; /* Adjust margins as needed */
     height: 100%;
 }
