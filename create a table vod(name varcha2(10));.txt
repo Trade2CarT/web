@@ -1,0 +1,1 @@
+create a table vod(name varcha2(10));
